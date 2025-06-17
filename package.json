@@ -9,6 +9,8 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@z-cloud/typescript-config": "workspace:^",
+    "@z-cloud/eslint-config": "workspace:^",
     "prettier": "^3.5.3",
     "turbo": "^2.5.4",
     "typescript": "5.8.2"
