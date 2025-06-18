@@ -2,3 +2,9 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+**/.next
+**/build
+**/coverage
+**/dist
+**/docs
+**/codemods/**/__testfixtures__

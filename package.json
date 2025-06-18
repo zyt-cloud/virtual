@@ -2,20 +2,23 @@
   "name": "my-turborepo",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --filter=!./config/*",
     "dev": "turbo run dev",
+    "start": "turbo run dev --filter=@z-cloud/virtual-react-docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@z-cloud/typescript-config": "workspace:^",
+    "@types/node": "catalog:",
     "@z-cloud/eslint-config": "workspace:^",
+    "@z-cloud/typescript-config": "workspace:^",
+    "@z-cloud/vite-config": "workspace:^",
     "prettier": "^3.5.3",
     "turbo": "^2.5.4",
-    "typescript": "5.8.2"
+    "typescript": "catalog:"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.12.1",
   "engines": {
     "node": ">=18"
   }

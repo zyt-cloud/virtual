@@ -1,0 +1,4 @@
+{
+  "extends": "@z-cloud/typescript-config/base.json",
+  "include": ["src", "./src/index.ts"]
+}

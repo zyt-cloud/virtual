@@ -11,9 +11,5 @@
   },
   "dependencies": {
     "rspress": "^1.40.2"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.17",
-    "typescript": "5.8.2"
   }
 }
