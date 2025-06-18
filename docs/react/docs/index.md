@@ -2,18 +2,18 @@
 pageType: home
 
 hero:
-  name: My Site
-  text: A cool website!
-  tagline: This is the tagline
+  name: VirtualList
+  text: 支持web以及小程序
+  tagline: 固定尺寸、动态尺寸、瀑布流、grid、分栏
   actions:
     - theme: brand
-      text: Quick Start
+      text: 开始
       link: /guide/
     - theme: alt
       text: GitHub
-      link: https://github.com/web-infra-dev/rspress
+      link: https://github.com/zyt-cloud/virtual
   image:
-    src: /rspress-icon.png
+    src: /logo.png
     alt: Logo
 features:
   - title: Blazing fast build speed
@@ -35,3 +35,5 @@ features:
     details: Through its extension mechanism, you can easily extend theme UI and build process.
     icon: 🔥
 ---
+
+import Test from '@components/test.tsx'

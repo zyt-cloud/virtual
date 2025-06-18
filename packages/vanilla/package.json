@@ -33,8 +33,5 @@
   "sideEffects": false,
   "files": [
     "dist"
-  ],
-  "devDependencies": {
-    "vite": "catalog:"
-  }
+  ]
 }

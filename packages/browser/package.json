@@ -36,9 +36,6 @@
     "dist"
   ],
   "dependencies": {
-    "@z-cloud/vitual-vanilla": "workspace:^"
-  },
-  "devDependencies": {
-    "vite": "catalog:"
+    "@z-cloud/virtual-vanilla": "workspace:^"
   }
 }

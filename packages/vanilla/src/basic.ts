@@ -74,7 +74,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
     const lastItems = new Map<number, VirtualItem>();
 
     for (let i = index - 1; i >= 0; i--) {
-      const item = items[i];
+      const item = items[i]!;
       const previousLastItem = lastItems.get(item.lane);
 
       if (previousLastItem == null || item.end > previousLastItem.end) {
@@ -94,6 +94,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
         return a.end - b.end;
       })[0];
     }
+    return void 0;
   }
 
   /**
@@ -156,7 +157,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
 
   private getVirtualItemsWithMemo = memoFnResult(
     (indexes: number[], items: VirtualItem[]) => {
-      return indexes.map((index) => items[index]);
+      return indexes.map((index) => items[index]!);
     },
   );
 
@@ -231,7 +232,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
       let endIndex = items.length - 1;
 
       while (endIndex > -1 && endLanes.some((val) => val === null)) {
-        const item = items[endIndex];
+        const item = items[endIndex]!;
         if (endLanes[item.lane] === null) {
           endLanes[item.lane] = item.end;
         }
@@ -251,7 +252,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
 
     while (lowIndex <= highIndex) {
       const middleIndex = Math.floor((lowIndex + highIndex) / 2);
-      const currentOffset = this.items[middleIndex].start;
+      const currentOffset = this.items[middleIndex]!.start;
 
       if (currentOffset < scrollOffset) {
         lowIndex = middleIndex + 1;
@@ -291,7 +292,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
       if (lanes === 1) {
         while (
           endIndex < lastIndex &&
-          items[endIndex].end < scrollElementSize + scrollOffset
+          items[endIndex]!.end < scrollElementSize + scrollOffset
         ) {
           endIndex++;
         }
@@ -302,7 +303,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
           endIndex < lastIndex &&
           endLanes.some((end) => end < scrollElementSize + scrollOffset)
         ) {
-          const item = items[endIndex];
+          const item = items[endIndex]!;
           endLanes[item.lane] = item.end;
           endIndex++;
         }

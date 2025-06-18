@@ -17,7 +17,9 @@
     "target": "ES2022",
     "baseUrl": "./",
     "paths": {
-      "@z-cloud/virtual-react": ["../../packages/react/src/index.tsx"],
+      "@z-cloud/virtual-react": ["../../packages/react/src"],
+      "@z-cloud/virtual-browser": ["../../packages/browser/src"],
+      "@z-cloud/virtual-vanilla": ["../../packages/vanilla/src"]
     }
   }
 }

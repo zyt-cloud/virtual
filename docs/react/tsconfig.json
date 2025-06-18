@@ -1,6 +1,5 @@
 {
   "extends": "@z-cloud/typescript-config/react-library.json",
-  "compilerOptions": {},
   "include": ["docs", "theme"],
   "mdx": {
     "checkMdx": true

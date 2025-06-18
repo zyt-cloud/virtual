@@ -11,5 +11,9 @@
   },
   "dependencies": {
     "rspress": "^1.40.2"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:"
   }
 }
