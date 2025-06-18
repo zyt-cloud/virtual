@@ -1,5 +1,5 @@
 {
-  "name": "@z-cloud/virtual-vanilla",
+  "name": "@z-cloud/virtual-browser",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -12,7 +12,8 @@
     "react",
     "vue",
     "virtual",
-    "virtual-vanilla"
+    "virtual-browser",
+    "virtual list for browser"
   ],
   "types": "dist/index.d.ts",
   "main": "dist/cjs/index.cjs",
@@ -34,6 +35,9 @@
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "@z-cloud/vitual-vanilla": "workspace:^"
+  },
   "devDependencies": {
     "vite": "catalog:"
   }
