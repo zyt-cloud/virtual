@@ -18,12 +18,16 @@ export function NormalVirtualList({
   const containerRef = useRef<HTMLDivElement>(null);
   const virtualizer = useVirualizer(props, containerRef);
 
-  const lanes = props.lanes ?? 1;
-
+  const { lanes = 1, horizontal } = props;
   const totalSize = virtualizer.getTotalSize();
-  const gridTemplateAreas = `'${Array.from({ length: lanes }, (_, index) =>
-    props.horizontal && lanes > 1 ? `'lane${index}'` : `lane${index}`,
-  ).join(' ')}'`;
+
+  let gridTemplateAreas = Array.from({ length: lanes }, (_, index) =>
+    horizontal ? `"lane${index}"` : `lane${index}`,
+  ).join(' ');
+
+  if (!horizontal) {
+    gridTemplateAreas = `"${gridTemplateAreas}"`;
+  }
 
   return (
     <div
@@ -35,7 +39,8 @@ export function NormalVirtualList({
         style={{
           display: 'grid',
           gridTemplateAreas,
-          columnGap: props.gap,
+          columnGap: horizontal ? void 0 : props.gap,
+          rowGap: horizontal ? props.gap : void 0,
           height: props.horizontal ? '100%' : totalSize,
           width: props.horizontal ? totalSize : '100%',
         }}

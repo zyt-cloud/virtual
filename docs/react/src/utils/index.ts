@@ -3,3 +3,7 @@ export function randomRgb() {
     Math.random() * 256,
   )}, ${Math.floor(Math.random() * 256)}, .3)`;
 }
+
+export function randomSize() {
+  return Math.floor(Math.random() * 100) + 100;
+}
