@@ -1,7 +1,7 @@
 import { VirtualList, type VirtualizerInstance } from '@z-cloud/virtual-react';
 import { useRef } from 'react';
 
-export default function VirtualListWithPageScroll() {
+export default function RowWaterfallVirtualList() {
   const instanceRef = useRef<VirtualizerInstance>(null);
 
   return (
@@ -22,16 +22,18 @@ export default function VirtualListWithPageScroll() {
           scrollToIndex(3000) with align center
         </button>
         <button
-          onClick={() => instanceRef.current?.scrollToOffset(3000, 'smooth')}
+          onClick={() => instanceRef.current?.scrollToOffset(4000, 'smooth')}
         >
-          scrollToOffset(3000) with smooth
+          scrollToOffset(4000) with smooth
         </button>
       </div>
       <VirtualList
+        style={{ height: 400 }}
         itemClassName="demo-list-item"
         count={10000}
         size={(index) => (index % 2 === 0 ? 60 : 120)}
-        followPageScroll
+        lanes={2}
+        gap={8}
         onReady={(virtualizer) => {
           instanceRef.current = virtualizer;
         }}

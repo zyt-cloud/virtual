@@ -12,12 +12,18 @@ export function NormalVirtualList({
   itemClassName,
   style,
   itemStyle,
+  dynamicSize = false,
   ...props
 }: VirtualListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const virtualizer = useVirualizer(props, containerRef);
 
+  const lanes = props.lanes ?? 1;
+
   const totalSize = virtualizer.getTotalSize();
+  const gridTemplateAreas = `'${Array.from({ length: lanes }, (_, index) =>
+    props.horizontal && lanes > 1 ? `'lane${index}'` : `lane${index}`,
+  ).join(' ')}'`;
 
   return (
     <div
@@ -27,21 +33,22 @@ export function NormalVirtualList({
     >
       <div
         style={{
+          display: 'grid',
+          gridTemplateAreas,
+          columnGap: props.gap,
           height: props.horizontal ? '100%' : totalSize,
           width: props.horizontal ? totalSize : '100%',
-          display: 'grid',
-          gridTemplateAreas: `"item"`,
         }}
       >
         {virtualizer.getVirtualItems().map((virtualItem) => (
           <div
             key={virtualItem.index}
             className={itemClassName}
-            // ref={virtualizer.elementMounted}
+            ref={dynamicSize ? virtualizer.elementMounted : void 0}
             data-index={virtualItem.index}
             style={{
               ...itemStyle,
-              gridArea: 'item',
+              gridArea: `lane${virtualItem.lane}`,
               height: props.horizontal ? void 0 : virtualItem.size,
               width: props.horizontal ? virtualItem.size : void 0,
               transform: props.horizontal
