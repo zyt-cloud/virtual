@@ -22,6 +22,8 @@ export interface VirtualListProps
    * grid 模式
    */
   grid?: boolean;
+  // 是否跟随页面滚动， 此时不需要设置虚拟列表高度
+  followPageScroll?: boolean;
   /**
    * grid布局时接收第二个参数，列的数据
    * @param item

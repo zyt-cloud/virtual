@@ -68,8 +68,7 @@ export function GridVirtualList({
                   gridArea: 'item',
                   height: rowItem.size,
                   width: colItem.size,
-                  transform: `translateX(${colItem.start}px) translateY(${rowItem.start}px)`,
-                  // transform: `translateY(${virtualItem.start - virtualizer.options.scrollMargin}px)`,
+                  transform: `translate(${colItem.start}px,${rowItem.start}px)`,
                 }}
               >
                 {children(rowItem, colItem)}

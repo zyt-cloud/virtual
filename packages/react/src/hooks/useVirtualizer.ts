@@ -17,16 +17,37 @@ export const useIsomorphicLayoutEffect = canUseDom
   ? useLayoutEffect
   : useEffect;
 
+function getOffsetTop(ele: HTMLElement | null) {
+  if (!ele) {
+    return 0;
+  }
+
+  let offsetTop = ele.offsetTop;
+  let nextEle = ele.offsetParent as HTMLElement;
+
+  while (nextEle) {
+    offsetTop += nextEle.offsetTop;
+    nextEle = nextEle.offsetParent as HTMLElement;
+  }
+
+  return offsetTop;
+}
+
 export function useVirualizer(
-  { onReady, onChange, ...props }: Omit<VirtualListProps, 'children'>,
+  {
+    onReady,
+    onChange,
+    followPageScroll,
+    ...props
+  }: Omit<VirtualListProps, 'children'>,
   containerRef: RefObject<HTMLDivElement | null>,
 ) {
   const rerender = useReducer(() => ({}), {})[1];
 
   const options: VirtualizerOptions<HTMLElement | Window> = {
-    getScrollElement: () => /* window */ containerRef.current,
+    getScrollElement: () => (followPageScroll ? window : containerRef.current),
+    scrollMargin: followPageScroll ? getOffsetTop(containerRef.current) : 0,
     ...props,
-    // scrollMargin: containerRef.current?.offsetTop ?? 0,
     onChange: (scrolling) => {
       if (scrolling) {
         flushSync(rerender);

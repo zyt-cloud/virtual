@@ -46,8 +46,7 @@ export function NormalVirtualList({
               width: props.horizontal ? virtualItem.size : void 0,
               transform: props.horizontal
                 ? `translateX(${virtualItem.start}px)`
-                : `translateY(${virtualItem.start}px)`,
-              // transform: `translateY(${virtualItem.start - virtualizer.options.scrollMargin}px)`,
+                : `translateY(${virtualItem.start - (props.followPageScroll ? (virtualizer.options.scrollMargin ?? 0) : 0)}px)`,
             }}
           >
             {children(virtualItem)}

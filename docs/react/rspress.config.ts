@@ -2,6 +2,15 @@ import * as path from 'node:path';
 import { defineConfig } from 'rspress/config';
 import { pluginPreview } from '@rspress/plugin-preview';
 
+const alias = ['react', 'browser', 'vanilla'].reduce((pre, name) => {
+  pre[`@z-cloud/virtual-${name}`] = path.join(
+    __dirname,
+    '../../',
+    `packages/${name}/src`,
+  );
+  return pre;
+}, {});
+
 export default defineConfig({
   plugins: [pluginPreview()],
   root: path.join(__dirname, 'docs'),
@@ -14,8 +23,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@': path.join(__dirname, 'src'),
-        '@z-cloud/virtual-react': path.join(__dirname, '../../', 'packages/react/src'),
-        '@z-cloud/virtual-browser': path.join(__dirname, '../../', 'packages/browser/src'),
+        ...alias,
       },
     },
   },

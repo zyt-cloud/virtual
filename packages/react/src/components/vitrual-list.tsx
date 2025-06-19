@@ -1,5 +1,4 @@
 import { VirtualListProps } from '../typings';
-import { useVirualizer } from '../hooks/useVirtualizer';
 import { GridVirtualList } from './grid';
 import { NormalVirtualList } from './normal';
 
