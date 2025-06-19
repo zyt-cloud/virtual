@@ -23,12 +23,12 @@ export default function GridVirtualList() {
         </button>
       </div>
       <VirtualList
-        style={{ height: 400, width: 600 }}
+        style={{ height: 400, width: 600, fontSize: 14 }}
         itemClassName="demo-list-item"
         count={10000}
         size={60}
         grid
-        gridSize={[80, 40]}
+        gridSize={[100, 40]}
         gap={10}
         overscan={5}
         onReady={(virtualizer) => {
@@ -37,7 +37,7 @@ export default function GridVirtualList() {
       >
         {({ index }, colItem) => (
           <div className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}>
-            cell {index} {colItem?.index}
+            cell {index},{colItem?.index}
           </div>
         )}
       </VirtualList>

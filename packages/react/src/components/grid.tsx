@@ -63,13 +63,12 @@ export function GridVirtualList({
                 key={colItem.index}
                 className={itemClassName}
                 // ref={virtualizer.elementMounted}
-                data-index={colItem.index}
                 style={{
                   ...itemStyle,
                   gridArea: 'item',
                   height: rowItem.size,
                   width: colItem.size,
-                  transform: `translate(${colItem.start}px, ${rowItem.start}px)`,
+                  transform: `translateX(${colItem.start}px) translateY(${rowItem.start}px)`,
                   // transform: `translateY(${virtualItem.start - virtualizer.options.scrollMargin}px)`,
                 }}
               >
