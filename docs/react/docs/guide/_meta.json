@@ -1,6 +1,8 @@
 [
   "index",
-  "test",
+  "installation",
+  "config",
+  "instance",
   {
     "type": "dir",
     "name": "demo",

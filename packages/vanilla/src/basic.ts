@@ -226,7 +226,7 @@ export class BasicVirtualizer<TOptions = Record<string, any>> {
     } else if (lanes === 1) {
       end = items[items.length - 1]?.end ?? 0;
     }
-    // 查找没条lane的end值，取其中值最大的的
+    // 查找每条lane的end值，取其中值最大的的
     else {
       const endLanes = Array<number | null>(lanes).fill(null);
       let endIndex = items.length - 1;

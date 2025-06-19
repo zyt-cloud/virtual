@@ -4,7 +4,7 @@ pageType: home
 hero:
   name: VirtualList
   text: 支持web以及小程序
-  tagline: 固定尺寸、动态尺寸、瀑布流、grid、分栏
+  tagline: 固定尺寸、动态尺寸、瀑布流、grid
   actions:
     - theme: brand
       text: 开始

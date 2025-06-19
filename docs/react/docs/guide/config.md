@@ -1,48 +1,14 @@
-export type Key = string | number | bigint;
+# 配置项
 
-export interface Range {
-  startIndex: number;
-  endIndex: number;
-  overscan: number;
+:::note
+`count`、`size` 为必须配置项，其余可选
+:::
+
+```ts title="VirtualListProps"
+{
+  // 列表项数量
   count: number;
-}
-
-export interface Rect {
-  width: number;
-  height: number;
-}
-
-export interface VirtualItem {
-  key: Key;
-  index: number;
-  start: number;
-  end: number;
-  size: number;
-  lane: number;
-}
-
-export type ScrollBehavior = 'auto' | 'smooth' | 'instant';
-
-export type ScrollAlignment = 'start' | 'center' | 'end';
-
-export interface ScrollToOptions {
-  align?: ScrollAlignment;
-  behavior?: ScrollBehavior;
-}
-
-export interface Rect {
-  width: number;
-  height: number;
-}
-
-export interface BasicVirtualizerOptions {
-  /**
-   * 列表项数量
-   */
-  count: number;
-  /**
-   * 每一项的大小，竖向滚动为高度，横向滚动为宽度
-   */
+  // 每一项的大小，竖向滚动为高度，横向滚动为宽度，动态尺寸也需要配置一个预估尺寸
   size: number | ((index: number) => number);
   /**
    * 可见范围外两端渲染数量，该值越大出现白屏的概率越小。建议跟随页面滚动的虚拟列表该值可稍微配置大一些。
@@ -50,7 +16,7 @@ export interface BasicVirtualizerOptions {
    */
   overscan?: number;
   /**
-   * 水平滚动
+   * 水平滚动 开启 grid 时该配置无效
    * @default false
    */
   horizontal?: boolean;
@@ -72,14 +38,24 @@ export interface BasicVirtualizerOptions {
    */
   initialOffset?: number | (() => number);
   /**
-   * 滚动元素距离页面顶部的距离
-   */
-  scrollMargin?: number;
-  /**
    * 列表被分成的列数或行数 (垂直列表对应列数，水平列表对应行数)
    * @default 1
    */
   lanes?: number;
+  // 动态尺寸 grid 模式暂不支持
+  dynamicSize?: boolean;
+  // grid 模式
+  grid?: boolean;
+  // grid模式下配置单元的宽高 [width, height] 提供该值会覆盖 size 配置
+  gridSize?: [number, number];
+  // 容器className
+  className?: string;
+  // 每一项的className
+  itemClassName?: string;
+  // 容器style
+  style?: React.CSSProperties;
+  // 每一项的style
+  itemStyle?: React.CSSProperties;
   /**
    * 自定义每一项的 Key 值， 如React中的key
    * @param index 当前项的索引
@@ -98,4 +74,13 @@ export interface BasicVirtualizerOptions {
    * @returns
    */
   onChange?: (scrolling: boolean) => void;
+  /**
+   * grid布局时接收第二个参数，列的数据
+   */
+  children: (item: VirtualItem, colItem?: VirtualItem) => React.ReactNode;
+  // 虚拟器实例可用
+  onReady?: (
+    virtualizer: BrowserVirtualizer<HTMLElement | Window, HTMLElement>,
+  ) => void;
 }
+```

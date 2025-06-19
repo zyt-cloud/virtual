@@ -6,5 +6,5 @@ yarn.lock
 **/build
 **/coverage
 **/dist
-**/docs
+# **/docs
 **/codemods/**/__testfixtures__

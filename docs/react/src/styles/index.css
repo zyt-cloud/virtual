@@ -1,0 +1,27 @@
+.demo-list-odd,
+.demo-list-even {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f2f2f;
+}
+
+.demo-list-odd {
+  background-color: #f6f5f5;
+}
+
+.demo-list-even {
+  background-color: #d7d3d4;
+}
+
+.demo-btns {
+  display: flex;
+  gap: 24px;
+  margin-block-end: 24px;
+
+  > button {
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+}

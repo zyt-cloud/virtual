@@ -10,9 +10,12 @@
     "preview": "rspress preview"
   },
   "dependencies": {
+    "@z-cloud/virtual-react": "workspace:^",
     "rspress": "^1.40.2"
   },
   "devDependencies": {
+    "@rspress/plugin-playground": "^1.44.0",
+    "@rspress/plugin-preview": "^1.44.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:"
   }

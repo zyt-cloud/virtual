@@ -20,8 +20,8 @@ const getScrollElementRect = (element: HTMLElement | Window): Rect => {
  * 适用于浏览器环境
  */
 export class BrowserVirtualizer<
-  TScrollElement extends HTMLElement | Window,
-  TItemElement extends HTMLElement,
+  TScrollElement extends HTMLElement | Window = any,
+  TItemElement extends HTMLElement = any,
 > extends BasicVirtualizer<VirtualizerOptions<TScrollElement>> {
   public scrollElement: TScrollElement | null = null;
   targetWindow: Window | null = null;
