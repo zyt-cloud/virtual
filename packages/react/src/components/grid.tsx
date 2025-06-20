@@ -2,7 +2,7 @@ import { VirtualListProps } from '../typings';
 import {
   useVirualizer,
   useIsomorphicLayoutEffect,
-} from '../hooks/useVirtualizer';
+} from '../hooks/use-virtualizer';
 import { Fragment, useRef } from 'react';
 
 /**

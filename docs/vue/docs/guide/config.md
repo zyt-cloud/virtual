@@ -51,7 +51,7 @@
   // 是否跟随页面滚动， 此时不需要设置虚拟列表高度
   followPageScroll?: boolean;
   // 容器className
-  className?: string;
+  class?: string;
   // 每一项的className
   itemClassName?: string;
   // 容器style

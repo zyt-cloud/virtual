@@ -1,5 +1,5 @@
 import { VirtualListProps } from '../typings';
-import { useVirualizer } from '../hooks/useVirtualizer';
+import { useVirualizer } from '../hooks/use-virtualizer';
 import { useRef } from 'react';
 
 /**

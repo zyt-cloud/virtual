@@ -2,9 +2,8 @@ import {
   BrowserVirtualizer,
   type VirtualizerOptions,
 } from '@z-cloud/virtual-browser';
-import { canUseDom } from '@z-cloud/virtual-vanilla';
-import { VirtualListProps } from '../typings';
-import { onMounted, type Ref } from 'vue';
+import type { VirtualListProps } from '../components/virtual-list.vue';
+import { onMounted, onScopeDispose, type Ref } from 'vue';
 
 function getOffsetTop(ele: HTMLElement | null) {
   if (!ele) {
@@ -44,7 +43,11 @@ export function useVirualizer(
 
   virtualizer.setOptions(options);
 
-  onMounted(() => {});
+  onMounted(() => {
+    virtualizer.init();
+  });
+
+  onScopeDispose(() => virtualizer.clean());
 
   return virtualizer;
 }
