@@ -28,3 +28,7 @@ features:
     details: 使用 Typescript 编写，提供良好的组件类型系统。
     icon: 🎨
 ---
+
+<style>
+@import '@/styles/index.css';
+</style>

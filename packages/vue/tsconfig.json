@@ -1,7 +1,4 @@
 {
   "extends": "@z-cloud/typescript-config/vite.json",
-  "compilerOptions": {
-    "types": ["vite/client"]
-  },
   "include": ["src"]
 }

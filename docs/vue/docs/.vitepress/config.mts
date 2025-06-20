@@ -1,4 +1,14 @@
+import path from 'node:path';
 import { defineConfig } from 'vitepress';
+
+const alias = ['vue', 'browser', 'vanilla'].reduce((prev, name) => {
+  prev[`@z-cloud/virtual-${name}`] = path.join(
+    process.cwd(),
+    '../../',
+    `packages/${name}/src`,
+  );
+  return prev;
+}, {});
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,6 +16,14 @@ export default defineConfig({
   description:
     '基于浏览器的虚拟列表实现, Vue virtual, VirtualList, virtual list',
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, '../../', 'src'),
+        ...alias,
+      },
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/icon.png',
@@ -23,6 +41,10 @@ export default defineConfig({
             { text: '安装', link: '/guide/installation' },
             { text: '配置项', link: '/guide/config' },
             { text: '虚拟器实例', link: '/guide/instance' },
+            {
+              text: '示例',
+              items: [{ text: '基础使用', link: '/guide/demo/basic' }],
+            },
           ],
         },
       ],
