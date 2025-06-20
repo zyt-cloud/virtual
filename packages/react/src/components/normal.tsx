@@ -41,6 +41,8 @@ export function NormalVirtualList({
           gridTemplateAreas,
           gridTemplateColumns: `repeat(${horizontal ? 1 : lanes}, 1fr)`,
           gridTemplateRows: `repeat(${horizontal ? lanes : 1}, 1fr)`,
+          alignItems: dynamicSize && !horizontal ? 'start' : 'stretch',
+          justifyItems: dynamicSize && horizontal ? 'start' : 'stretch',
           columnGap: horizontal ? void 0 : props.gap,
           rowGap: horizontal ? props.gap : void 0,
           height: props.horizontal ? '100%' : totalSize,
@@ -56,16 +58,8 @@ export function NormalVirtualList({
             style={{
               ...itemStyle,
               gridArea: `lane${virtualItem.lane}`,
-              height: horizontal
-                ? void 0
-                : dynamicSize
-                  ? 'fit-content'
-                  : virtualItem.size,
-              width: !horizontal
-                ? void 0
-                : dynamicSize
-                  ? 'fit-content'
-                  : virtualItem.size,
+              height: horizontal || dynamicSize ? void 0 : virtualItem.size,
+              width: !horizontal || dynamicSize ? void 0 : virtualItem.size,
               transform: props.horizontal
                 ? `translateX(${virtualItem.start}px)`
                 : `translateY(${virtualItem.start - (props.followPageScroll ? (virtualizer.options.scrollMargin ?? 0) : 0)}px)`,

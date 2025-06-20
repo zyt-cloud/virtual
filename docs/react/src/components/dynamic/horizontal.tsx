@@ -3,9 +3,9 @@ import { useRef } from 'react';
 
 const dynamicSizes = new Array(10000)
   .fill(true)
-  .map(() => Math.round(Math.random() * 80 + 30));
+  .map(() => Math.round(Math.random() * 80 + 80));
 
-export default function DynamicSizeVirtualList() {
+export default function ColumnDynamicVirtualList() {
   const instanceRef = useRef<VirtualizerInstance>(null);
 
   return (
@@ -18,27 +18,25 @@ export default function DynamicSizeVirtualList() {
         >
           scrollToIndex(3000) with align center
         </button>
-        <button onClick={() => instanceRef.current?.scrollToOffset(4000)}>
-          scrollToOffset(4000)
-        </button>
       </div>
       <VirtualList
-        style={{ height: 400 }}
+        style={{ height: 100 }}
         itemClassName="demo-list-item"
         count={10000}
-        dynamicSize
+        size={100}
         overscan={5}
-        size={60}
+        horizontal
+        dynamicSize
         onReady={(virtualizer) => {
           instanceRef.current = virtualizer;
         }}
       >
         {({ index }) => (
           <div
-            style={{ height: dynamicSizes[index] }}
+            style={{ width: dynamicSizes[index] }}
             className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}
           >
-            第 {index} 行
+            第 {index} 列
           </div>
         )}
       </VirtualList>
