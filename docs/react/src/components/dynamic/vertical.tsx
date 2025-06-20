@@ -1,8 +1,11 @@
 import { VirtualList, type VirtualizerInstance } from '@z-cloud/virtual-react';
 import { useRef } from 'react';
-import { randomColors, randomSize } from '../../utils';
 
-export default function ColWaterfallVirtualList() {
+const dynamicSizes = new Array(10000)
+  .fill(true)
+  .map(() => Math.round(Math.random() * 80 + 30));
+
+export default function DynamicSizeVirtualList() {
   const instanceRef = useRef<VirtualizerInstance>(null);
 
   return (
@@ -10,43 +13,33 @@ export default function ColWaterfallVirtualList() {
       <div className="demo-btns">
         <button
           onClick={() =>
-            instanceRef.current?.scrollToIndex(2000, { behavior: 'smooth' })
-          }
-        >
-          scrollToIndex(2000) with smooth
-        </button>
-        <button
-          onClick={() =>
             instanceRef.current?.scrollToIndex(3000, { align: 'center' })
           }
         >
           scrollToIndex(3000) with align center
         </button>
-        <button
-          onClick={() => instanceRef.current?.scrollToOffset(4000, 'smooth')}
-        >
-          scrollToOffset(4000) with smooth
+        <button onClick={() => instanceRef.current?.scrollToOffset(4000)}>
+          scrollToOffset(4000)
         </button>
       </div>
       <VirtualList
         style={{ height: 400 }}
         itemClassName="demo-list-item"
         count={10000}
-        size={(index) => randomSize()}
-        lanes={2}
-        gap={8}
-        horizontal
+        dynamicSize
+        overscan={2}
+        size={60}
         onReady={(virtualizer) => {
           instanceRef.current = virtualizer;
         }}
       >
         {({ index }) => (
           <div
-            style={{
-              backgroundColor: randomColors[index % randomColors.length],
-            }}
+            style={{ height: dynamicSizes[index] }}
             className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}
-          />
+          >
+            第 {index} 行
+          </div>
         )}
       </VirtualList>
     </div>

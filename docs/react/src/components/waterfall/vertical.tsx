@@ -1,8 +1,6 @@
 import { VirtualList, type VirtualizerInstance } from '@z-cloud/virtual-react';
 import { useRef } from 'react';
-import { randomRgb, randomSize } from '../../utils';
-
-const colors = Array.from({ length: 6 }, () => randomRgb());
+import { randomColors, randomSize } from '../../utils';
 
 export default function RowWaterfallVirtualList() {
   const instanceRef = useRef<VirtualizerInstance>(null);
@@ -35,7 +33,7 @@ export default function RowWaterfallVirtualList() {
         itemClassName="demo-list-item"
         count={10000}
         overscan={4}
-        size={(index) => randomSize() + 120}
+        size={(index) => randomSize() + 80}
         lanes={2}
         gap={8}
         onReady={(virtualizer) => {
@@ -44,9 +42,11 @@ export default function RowWaterfallVirtualList() {
       >
         {({ index }) => (
           <div
-            style={{ backgroundColor: colors[index % colors.length] }}
+            style={{
+              backgroundColor: randomColors[index % randomColors.length],
+            }}
             className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}
-          ></div>
+          />
         )}
       </VirtualList>
     </div>

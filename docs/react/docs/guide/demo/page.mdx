@@ -1,5 +1,28 @@
 # 页面滚动
 
+:::info
+开启跟随页面滚动只需要配置 `followPageScroll` 为 `true`，并且不需要指定 `VirtualList` 的宽度或者高度
+:::
+
 当前虚拟列表跟随页面滚动
+
+```tsx pure
+<VirtualList
+  itemClassName="demo-list-item"
+  count={10000}
+  size={(index) => (index % 2 === 0 ? 60 : 120)}
+  followPageScroll
+  overscan={5}
+  onReady={(virtualizer) => {
+    instanceRef.current = virtualizer;
+  }}
+>
+  {({ index }) => (
+    <div className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}>
+      第 {index} 行
+    </div>
+  )}
+</VirtualList>
+```
 
 <code src="@/components/page/index.tsx" />
