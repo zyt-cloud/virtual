@@ -31,6 +31,7 @@ export default function RowVirtualList() {
         style={{ height: 400 }}
         itemClassName="demo-list-item"
         count={10000}
+        overscan={5}
         size={(index) => (index % 2 === 0 ? 60 : 120)}
         onReady={(virtualizer) => {
           instanceRef.current = virtualizer;

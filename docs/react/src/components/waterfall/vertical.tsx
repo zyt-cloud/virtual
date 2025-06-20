@@ -34,6 +34,7 @@ export default function RowWaterfallVirtualList() {
         style={{ height: 750, width: 350 }}
         itemClassName="demo-list-item"
         count={10000}
+        overscan={4}
         size={(index) => randomSize() + 120}
         lanes={2}
         gap={8}
@@ -45,9 +46,7 @@ export default function RowWaterfallVirtualList() {
           <div
             style={{ backgroundColor: colors[index % colors.length] }}
             className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}
-          >
-            第 {index} 项
-          </div>
+          ></div>
         )}
       </VirtualList>
     </div>

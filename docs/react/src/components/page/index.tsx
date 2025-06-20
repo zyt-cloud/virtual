@@ -32,6 +32,7 @@ export default function VirtualListWithPageScroll() {
         count={10000}
         size={(index) => (index % 2 === 0 ? 60 : 120)}
         followPageScroll
+        overscan={5}
         onReady={(virtualizer) => {
           instanceRef.current = virtualizer;
         }}

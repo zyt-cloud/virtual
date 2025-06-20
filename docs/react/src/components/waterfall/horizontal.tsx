@@ -44,9 +44,7 @@ export default function ColWaterfallVirtualList() {
           <div
             style={{ backgroundColor: randomRgb() }}
             className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}
-          >
-            第 {index} 项
-          </div>
+          ></div>
         )}
       </VirtualList>
     </div>
