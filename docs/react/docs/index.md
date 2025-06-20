@@ -2,8 +2,8 @@
 pageType: home
 
 hero:
-  name: VirtualList
-  text: 支持web以及小程序
+  name: VirtualList for React
+  text: 提供web以及小程序包
   tagline: 固定尺寸、动态尺寸、瀑布流、grid
   actions:
     - theme: brand
@@ -16,24 +16,13 @@ hero:
     src: /logo.png
     alt: Logo
 features:
-  - title: Blazing fast build speed
-    details: The core compilation module is based on the Rust front-end toolchain, providing a more ultimate development experience.
+  - title: 多平台包
+    details: web端提供 React 以及 Vue 包，小程序提供 Taro 以及 uni-app 包。
     icon: 🏃🏻‍♀️
-  - title: Support for MDX content writing
-    details: MDX is a powerful way to write content, allowing you to use React components in Markdown.
+  - title: 提供丰富的组件示例
+    details: 提供各种使用场景的示例代码，复制即可使用。
     icon: 📦
-  - title: Built-in full-text search
-    details: Automatically generates a full-text search index for you during construction, providing out-of-the-box full-text search capabilities.
+  - title: TypeScript 支持
+    details: 使用 Typescript 编写，提供良好的组件类型系统。
     icon: 🎨
-  - title: Simpler I18n solution
-    details: With the built-in I18n solution, you can easily provide multi-language support for documents or components.
-    icon: 🌍
-  - title: Static site generation
-    details: In production, it automatically builds into static HTML files, which can be easily deployed anywhere.
-    icon: 🌈
-  - title: Providing multiple custom capabilities
-    details: Through its extension mechanism, you can easily extend theme UI and build process.
-    icon: 🔥
 ---
-
-import Test from '@components/test.tsx'

@@ -16,7 +16,7 @@ scrollToIndex(index: number, options?: ScrollToIndexOptions)
 scrollToOffset(offset: number, options?: ScrollToIndexOptions)
 ```
 
-滚动到指定便宜，固定尺寸支持配置 `behavior: smooth` 配置
+滚动到指定偏移，固定尺寸支持配置 `behavior: smooth` 配置
 
 ## `getTotalSize`
 
