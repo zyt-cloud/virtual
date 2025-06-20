@@ -7,6 +7,7 @@
     "vue-virtual",
     "virtual",
     "virtual-list",
+    "virtual-waterfall",
     "vue 虚拟列表",
     "vue 瀑布流",
     "virtual-grid"
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@z-cloud/virtual-browser": "workspace:^",
+    "@z-cloud/virtual-vanilla": "workspace:^",
     "@vitejs/plugin-vue": "^5.2.3",
     "vue-tsc": "^2.2.8"
   },

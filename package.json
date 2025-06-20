@@ -4,7 +4,8 @@
   "scripts": {
     "build": "turbo run build --filter=!./config/*",
     "dev": "turbo run dev",
-    "start": "turbo run dev --filter=@z-cloud/virtual-react-docs",
+    "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs",
+    "start-react": "turbo run dev --filter=@z-cloud/virtual-react-docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
@@ -16,8 +17,8 @@
     "@z-cloud/vite-config": "workspace:^",
     "prettier": "^3.5.3",
     "turbo": "^2.5.4",
-    "vite": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vite": "catalog:"
   },
   "packageManager": "pnpm@10.12.1",
   "engines": {

@@ -1,0 +1,7 @@
+{
+  "extends": "@z-cloud/typescript-config/vite.json",
+  "include": ["docs", "src", "**/packages/vue/src"],
+  "mdx": {
+    "checkMdx": true
+  }
+}

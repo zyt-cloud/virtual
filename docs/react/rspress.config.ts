@@ -14,6 +14,8 @@ const alias = ['react', 'browser', 'vanilla'].reduce((prev, name) => {
 export default defineConfig({
   plugins: [pluginPreview()],
   root: path.join(__dirname, 'docs'),
+  description:
+    '基于浏览器的虚拟列表实现, React virtual, VirtualList, virtual list',
   title: '两颗樱桃',
   icon: '/favicon.png',
   logo: '/icon.png',

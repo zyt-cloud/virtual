@@ -1,7 +1,6 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "extends": "@z-cloud/typescript-config/vite.json",
+  "include": [
+    "src"
   ]
 }

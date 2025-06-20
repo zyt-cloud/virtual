@@ -1,0 +1,14 @@
+{
+  "name": "@z-cloud/virtual-vue-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@z-cloud/virtual-vue": "workspace:^",
+    "vitepress": "^1.6.3"
+  }
+}
