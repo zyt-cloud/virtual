@@ -21,7 +21,12 @@ export function viteConfig(options) {
   return defineConfig({
     plugins: [
       externalizeDeps(),
-      dts({ compilerOptions: { paths: void 0 }, afterDiagnostic }),
+      dts({
+        compilerOptions: { paths: void 0 },
+        cleanVueFileName: true,
+        // bundleTypes: { bundledPackages: ['@z-cloud/virtual-vue'] },
+        afterDiagnostic,
+      }),
       // dts({ outDirs: `${outDir}/esm`, afterDiagnostic }),
       // cjs ? dts({ outDirs: `${outDir}/cjs`, afterDiagnostic }) : null,
     ],
@@ -42,7 +47,7 @@ export function viteConfig(options) {
         },
       },
       rollupOptions: {
-        output: { preserveModules: true },
+        output: { preserveModules: true, exports: 'named' },
       },
     },
   });

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" name="VirtualList">
 import type {
   BrowserVirtualizer,
   VirtualizerOptions,
@@ -30,7 +30,7 @@ export interface VirtualListProps
   ) => void;
 }
 
-const props = withDefaults(defineProps<VirtualListProps>(), {
+const props = withDefaults(defineProps<{ dynamicSize: boolean, count: number, size: number }>(), {
   dynamicSize: false,
 })
 
@@ -44,4 +44,3 @@ console.log(39, props)
 
   </div>
 </template>
-

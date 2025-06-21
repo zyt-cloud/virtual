@@ -1,7 +1,7 @@
 packages:
-  - "config/*"
-  - "docs/*"
-  - "packages/*"
+  - 'config/*'
+  - 'docs/*'
+  - 'packages/*'
 
 catalog:
   '@types/react': ^19.1.2
@@ -12,3 +12,4 @@ catalog:
   react-dom: ^19.1.0
   typescript: ^5.8.3
   vite: ^6.3.5
+  vue: ^3.5.16
