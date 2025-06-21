@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VirtualList } from '@z-cloud/virtual-vue'
+import VirtualList from '@z-cloud/virtual-vue'
 </script>
 
 <template> 

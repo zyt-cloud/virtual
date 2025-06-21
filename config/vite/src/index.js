@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'vite';
 import dts from 'unplugin-dts/vite';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
 const afterDiagnostic = (diagnostics) => {
   if (diagnostics?.length > 0) {
@@ -19,7 +20,8 @@ export function viteConfig(options) {
 
   return defineConfig({
     plugins: [
-      dts({ pathsToAliases: false, afterDiagnostic }),
+      externalizeDeps(),
+      dts({ compilerOptions: { paths: void 0 }, afterDiagnostic }),
       // dts({ outDirs: `${outDir}/esm`, afterDiagnostic }),
       // cjs ? dts({ outDirs: `${outDir}/cjs`, afterDiagnostic }) : null,
     ],
@@ -38,6 +40,9 @@ export function viteConfig(options) {
           }
           return 'esm/[name].js';
         },
+      },
+      rollupOptions: {
+        output: { preserveModules: true },
       },
     },
   });

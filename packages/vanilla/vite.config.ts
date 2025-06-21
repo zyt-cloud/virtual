@@ -10,10 +10,5 @@ export default mergeConfig(
     lib: {
       entry: './src/index.ts',
     },
-    rollupOptions: {
-      output: {
-        preserveModules: true,
-      },
-    },
   }),
 );

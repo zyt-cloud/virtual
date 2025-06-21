@@ -12,17 +12,5 @@ export default mergeConfig(
     lib: {
       entry: './src/index.ts',
     },
-    rollupOptions: {
-      external: [
-        '@z-cloud/virtual-vanilla',
-        '@z-cloud/virtual-browser',
-        'react',
-        'react-dom',
-        'react/jsx-runtime',
-      ],
-      output: {
-        preserveModules: true,
-      },
-    },
   }),
 );

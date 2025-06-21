@@ -12,11 +12,5 @@ export default mergeConfig(
     lib: {
       entry: './src/index.ts',
     },
-    rollupOptions: {
-      external: ['@z-cloud/virtual-vanilla', '@z-cloud/virtual-browser', 'vue'],
-      output: {
-        preserveModules: true,
-      },
-    },
   }),
 );

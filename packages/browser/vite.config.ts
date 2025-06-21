@@ -10,11 +10,5 @@ export default mergeConfig(
     lib: {
       entry: './src/index.ts',
     },
-    rollupOptions: {
-      external: ['@z-cloud/virtual-vanilla'],
-      output: {
-        preserveModules: true,
-      },
-    },
   }),
 );
