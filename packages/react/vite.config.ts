@@ -18,13 +18,10 @@ export default mergeConfig(
         '@z-cloud/virtual-browser',
         'react',
         'react-dom',
+        'react/jsx-runtime',
       ],
       output: {
         preserveModules: true,
-      },
-      jsx: {
-        mode: 'automatic',
-        preset: 'react-jsx',
       },
     },
   }),

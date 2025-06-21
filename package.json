@@ -2,7 +2,7 @@
   "name": "my-turborepo",
   "private": true,
   "scripts": {
-    "build": "turbo run build --filter=./packages/*",
+    "build": "turbo run build --filter=./packages/* --force",
     "build:docs": "turbo run build --filter=./docs/*",
     "dev": "turbo run dev",
     "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs --filter=@z-cloud/virtual-vue",

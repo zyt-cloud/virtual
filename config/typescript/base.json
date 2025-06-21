@@ -14,6 +14,12 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "baseUrl": "./",
+    "paths": {
+      "@z-cloud/virtual-vanilla": ["../../packages/vanilla/src"],
+      "@z-cloud/virtual-browser": ["../../packages/browser/src"],
+      "@z-cloud/virtual-react": ["../../packages/react/src"]
+    }
   }
 }

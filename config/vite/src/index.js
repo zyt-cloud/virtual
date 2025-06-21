@@ -19,9 +19,7 @@ export function viteConfig(options) {
 
   return defineConfig({
     plugins: [
-      dts({
-        afterDiagnostic,
-      }),
+      dts({ pathsToAliases: false, afterDiagnostic }),
       // dts({ outDirs: `${outDir}/esm`, afterDiagnostic }),
       // cjs ? dts({ outDirs: `${outDir}/cjs`, afterDiagnostic }) : null,
     ],
@@ -29,7 +27,7 @@ export function viteConfig(options) {
       ...options,
       emptyOutDir: true,
       outDir,
-      sourcemap: true,
+      sourcemap: false,
       minify: false,
       lib: {
         entry: options.lib.entry,
