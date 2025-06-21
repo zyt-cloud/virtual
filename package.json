@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo run build --filter=!./config/*",
     "dev": "turbo run dev",
-    "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs",
+    "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs --filter=@z-cloud/virtual-vue",
     "start-react": "turbo run dev --filter=@z-cloud/virtual-react-docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

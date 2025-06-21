@@ -38,3 +38,5 @@ yarn-error.log*
 *.pem
 
 docs/vue/docs/.vitepress/cache
+docs/vue/docs/.vitepress/.temp
+doc_build
