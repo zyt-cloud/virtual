@@ -7,6 +7,13 @@ const config = defineConfig({});
 export default mergeConfig(
   config,
   viteConfig({
-    entry: 'src/index.ts',
+    lib: {
+      entry: './src/index.ts',
+    },
+    rollupOptions: {
+      output: {
+        preserveModules: true,
+      },
+    },
   }),
 );

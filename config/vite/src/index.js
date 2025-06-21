@@ -19,15 +19,20 @@ export function viteConfig(options) {
 
   return defineConfig({
     plugins: [
-      dts({ afterDiagnostic }),
+      dts({
+        afterDiagnostic,
+      }),
       // dts({ outDirs: `${outDir}/esm`, afterDiagnostic }),
       // cjs ? dts({ outDirs: `${outDir}/cjs`, afterDiagnostic }) : null,
     ],
     build: {
+      ...options,
+      emptyOutDir: true,
       outDir,
-      sourcemap: false,
+      sourcemap: true,
+      minify: false,
       lib: {
-        entry: options.entry,
+        entry: options.lib.entry,
         formats: cjs ? ['es', 'cjs'] : ['es'],
         fileName: (format) => {
           if (format === 'cjs') {

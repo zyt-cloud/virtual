@@ -39,12 +39,12 @@
   },
   "dependencies": {
     "@z-cloud/virtual-browser": "workspace:^",
-    "@z-cloud/virtual-vanilla": "workspace:^",
-    "vue": "^3.5.13"
+    "@z-cloud/virtual-vanilla": "workspace:^"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
-    "vue-tsc": "^2.2.8"
+    "vue-tsc": "^2.2.8",
+    "vue": "^3.5.13"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"

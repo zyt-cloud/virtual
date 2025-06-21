@@ -9,6 +9,14 @@ const config = defineConfig({
 export default mergeConfig(
   config,
   viteConfig({
-    entry: 'src/index.ts',
+    lib: {
+      entry: './src/index.ts',
+    },
+    rollupOptions: {
+      external: ['@z-cloud/virtual-vanilla', '@z-cloud/virtual-browser', 'vue'],
+      output: {
+        preserveModules: true,
+      },
+    },
   }),
 );

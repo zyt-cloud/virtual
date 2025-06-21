@@ -1,8 +1,13 @@
-import { type LibraryOptions, type UserConfig } from 'vite';
+import {
+  type LibraryOptions,
+  type BuildEnvironmentOptions,
+  type UserConfig,
+} from 'vite';
 
-type Options = LibraryOptions & {
+type Options = BuildEnvironmentOptions & {
   cjs?: boolean;
   outDir?: string;
+  lib: LibraryOptions;
 };
 
 export function viteConfig(config: Options): UserConfig;
