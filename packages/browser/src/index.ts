@@ -2,6 +2,7 @@ import { BasicVirtualizer, debounce } from '@z-cloud/virtual-vanilla';
 import type { Key, Rect, ScrollToOptions } from '@z-cloud/virtual-vanilla';
 import type { VirtualizerOptions } from './typings';
 
+export { getElementOffsetTop } from './utils';
 export type { VirtualizerOptions };
 
 const eventListenerOptions = {

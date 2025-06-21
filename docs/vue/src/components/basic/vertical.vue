@@ -4,6 +4,6 @@ import { VirtualList } from '@z-cloud/virtual-vue'
 
 <template>
   <div>
-    <VirtualList :count="1000"></VirtualList>
+    <VirtualList :count="1000" :size="60"></VirtualList>
   </div>
 </template>

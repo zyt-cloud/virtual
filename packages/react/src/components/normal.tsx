@@ -1,5 +1,8 @@
 import { VirtualListProps } from '../typings';
-import { useVirualizer } from '../hooks/use-virtualizer';
+import {
+  useIsomorphicLayoutEffect,
+  useVirualizer,
+} from '../hooks/use-virtualizer';
 import { useRef } from 'react';
 
 /**
@@ -13,6 +16,7 @@ export function NormalVirtualList({
   style,
   itemStyle,
   dynamicSize = false,
+  onReady,
   ...props
 }: VirtualListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,6 +32,13 @@ export function NormalVirtualList({
   if (!horizontal) {
     gridTemplateAreas = `"${gridTemplateAreas}"`;
   }
+
+  useIsomorphicLayoutEffect(() => {
+    virtualizer.init();
+    onReady?.(virtualizer);
+
+    return () => virtualizer.clean();
+  }, [virtualizer]);
 
   return (
     <div

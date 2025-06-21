@@ -30,7 +30,7 @@ export interface VirtualListProps
   ) => void;
 }
 
-const props = withDefaults(defineProps<{ dynamicSize: boolean, count: number, size: number }>(), {
+const props = withDefaults(defineProps<VirtualListProps>(), {
   dynamicSize: false,
 })
 

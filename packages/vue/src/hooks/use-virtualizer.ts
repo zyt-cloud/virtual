@@ -1,50 +1,49 @@
 import {
   BrowserVirtualizer,
+  getElementOffsetTop,
   type VirtualizerOptions,
 } from '@z-cloud/virtual-browser';
 import type { VirtualListProps } from '../components/virtual-list.vue';
-import { onMounted, onScopeDispose, type Ref } from 'vue';
+import { onMounted, onScopeDispose, unref, type Ref } from 'vue';
 
-function getOffsetTop(ele: HTMLElement | null) {
-  if (!ele) {
-    return 0;
-  }
+type MayBeRef<T> = T | Ref<T>;
 
-  let offsetTop = ele.offsetTop;
-  let nextEle = ele.offsetParent as HTMLElement;
-
-  while (nextEle) {
-    offsetTop += nextEle.offsetTop;
-    nextEle = nextEle.offsetParent as HTMLElement;
-  }
-
-  return offsetTop;
-}
+type VirtualizerInstance = BrowserVirtualizer<
+  HTMLElement | Window,
+  HTMLElement
+>;
 
 export function useVirualizer(
-  {
-    onReady,
-    onChange,
-    followPageScroll,
-    ...props
-  }: Omit<VirtualListProps, 'children'>,
+  props: MayBeRef<Omit<VirtualListProps, 'children'>>,
   containerRef: Ref<HTMLElement | null>,
 ) {
+  const { onReady, onChange, followPageScroll, ...restOptions } = unref(props);
+
   const options: VirtualizerOptions<HTMLElement | Window> = {
     getScrollElement: () => (followPageScroll ? window : containerRef.value),
-    scrollMargin: followPageScroll ? getOffsetTop(containerRef.value) : 0,
-    ...props,
+    scrollMargin: followPageScroll
+      ? getElementOffsetTop(containerRef.value)
+      : 0,
+    ...restOptions,
     onChange: (scrolling) => {
       onChange?.(scrolling);
     },
   };
 
-  const virtualizer = new BrowserVirtualizer(options);
+  const emit = defineEmits<{
+    (e: 'change', scrolling: boolean): void;
+    (
+      e: 'ready',
+      virtualizer: VirtualizerInstance,
+      colVirtualizer?: VirtualizerInstance,
+    ): void;
+  }>();
 
-  virtualizer.setOptions(options);
+  const virtualizer = new BrowserVirtualizer(options);
 
   onMounted(() => {
     virtualizer.init();
+    emit('ready', virtualizer);
   });
 
   onScopeDispose(() => virtualizer.clean());

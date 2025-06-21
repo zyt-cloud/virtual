@@ -24,7 +24,6 @@ export function viteConfig(options) {
       dts({
         compilerOptions: { paths: void 0 },
         cleanVueFileName: true,
-        // bundleTypes: { bundledPackages: ['@z-cloud/virtual-vue'] },
         afterDiagnostic,
       }),
       // dts({ outDirs: `${outDir}/esm`, afterDiagnostic }),

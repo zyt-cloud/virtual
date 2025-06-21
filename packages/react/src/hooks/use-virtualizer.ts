@@ -8,6 +8,7 @@ import {
 import { flushSync } from 'react-dom';
 import {
   BrowserVirtualizer,
+  getElementOffsetTop,
   type VirtualizerOptions,
 } from '@z-cloud/virtual-browser';
 import { canUseDom } from '@z-cloud/virtual-vanilla';
@@ -16,22 +17,6 @@ import { VirtualListProps } from '../typings';
 export const useIsomorphicLayoutEffect = canUseDom
   ? useLayoutEffect
   : useEffect;
-
-function getOffsetTop(ele: HTMLElement | null) {
-  if (!ele) {
-    return 0;
-  }
-
-  let offsetTop = ele.offsetTop;
-  let nextEle = ele.offsetParent as HTMLElement;
-
-  while (nextEle) {
-    offsetTop += nextEle.offsetTop;
-    nextEle = nextEle.offsetParent as HTMLElement;
-  }
-
-  return offsetTop;
-}
 
 export function useVirualizer(
   {
@@ -46,7 +31,9 @@ export function useVirualizer(
 
   const options: VirtualizerOptions<HTMLElement | Window> = {
     getScrollElement: () => (followPageScroll ? window : containerRef.current),
-    scrollMargin: followPageScroll ? getOffsetTop(containerRef.current) : 0,
+    scrollMargin: followPageScroll
+      ? getElementOffsetTop(containerRef.current)
+      : 0,
     ...props,
     onChange: (scrolling) => {
       if (scrolling) {
@@ -61,13 +48,6 @@ export function useVirualizer(
   const [virtualizer] = useState(() => new BrowserVirtualizer(options));
 
   virtualizer.setOptions(options);
-
-  useIsomorphicLayoutEffect(() => {
-    virtualizer.init();
-    onReady?.(virtualizer);
-
-    return () => virtualizer.clean();
-  }, [virtualizer]);
 
   return virtualizer;
 }
