@@ -33,5 +33,6 @@
   > button {
     padding: 4px 12px;
     border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 }

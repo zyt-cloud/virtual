@@ -2,10 +2,11 @@
   "name": "my-turborepo",
   "private": true,
   "scripts": {
-    "build": "turbo run build --filter=./packages/* --force",
+    "build": "turbo run build --filter=./packages/*",
+    "build:force": "turbo run build --filter=./packages/* --force",
     "build:docs": "turbo run build --filter=./docs/*",
     "dev": "turbo run dev",
-    "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs --filter=@z-cloud/virtual-vue",
+    "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs",
     "start-react": "turbo run dev --filter=@z-cloud/virtual-react-docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
