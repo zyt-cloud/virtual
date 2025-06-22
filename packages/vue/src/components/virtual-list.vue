@@ -10,5 +10,9 @@ const props = withDefaults(defineProps<VirtualListProps>(), {
 </script>
 
 <template>
-  <component :is="props.grid ? GridVirtualList : NormalVirtualList" v-bind="mergeProps(props, $attrs)" />
+  <component :is="props.grid ? GridVirtualList : NormalVirtualList" v-bind="mergeProps(props, $attrs)">
+    <template v-for="(_, name) in $slots" :key="name" #[name]="slotProps">
+      <slot :name="name" v-bind="slotProps"></slot>
+    </template>
+  </component>
 </template>

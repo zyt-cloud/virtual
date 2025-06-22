@@ -8,6 +8,10 @@ const onReady = (virtualizer: VirtualizerInstance) => {
 
 <template>
   <div>
-    <VirtualList :count="1000" :size="60" @ready="onReady"></VirtualList>
+    <VirtualList :count="1000" :size="60" @ready="onReady">
+      <template #default="{ index }">
+        <div>row {{ index }}</div>
+      </template>
+    </VirtualList>
   </div>
 </template>

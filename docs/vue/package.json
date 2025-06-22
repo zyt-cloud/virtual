@@ -11,5 +11,8 @@
     "@z-cloud/virtual-vue": "workspace:^",
     "vitepress": "^1.6.3",
     "vue": "catalog:"
+  },
+  "devDependencies": {
+    "vitepress-demo-plugin": "^1.4.5"
   }
 }

@@ -30,5 +30,10 @@ console.log(29, props)
 </script>
 
 <template>
-  <div ref="containerRef">normal virtual list</div>
+  <div ref="containerRef">
+    <div>normal list</div>
+    <div>
+      <slot />
+    </div>
+  </div>
 </template>

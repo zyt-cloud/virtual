@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { defineConfig } from 'vitepress';
+import { vitepressDemoPlugin } from 'vitepress-demo-plugin';
 
 const alias = ['vue', 'browser', 'vanilla'].reduce((prev, name) => {
   prev[`@z-cloud/virtual-${name}`] = path.join(
@@ -19,9 +20,16 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': path.join(__dirname, '../../', 'src'),
+        '@': path.join(__dirname, '..'),
         ...alias,
       },
+    },
+  },
+  markdown: {
+    config: (md) => {
+      md.use(vitepressDemoPlugin, {
+        demoDir: path.resolve(__dirname, '../components'),
+      });
     },
   },
   themeConfig: {
