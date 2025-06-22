@@ -4,6 +4,10 @@
 `count`、`size` 为必须配置项，其余可选
 :::
 
+::: tip
+提供两个插槽 `default` 和 `grid`, `grid` 模式只在开启 `grid` 模式时生效
+:::
+
 ```ts title="VirtualListProps"
 {
   // 列表项数量

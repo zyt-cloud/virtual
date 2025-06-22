@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type VirtualizerInstance, VirtualList } from '@z-cloud/virtual-vue'
 import { ref } from 'vue'
+import { randomSize, randomColors } from '../../utils'
 
 const instanceRef = ref<VirtualizerInstance>()
 
@@ -18,9 +19,21 @@ const onReady = (virtualizer: VirtualizerInstance) => {
       </button>
       <button @click="instanceRef?.scrollToOffset(4000, 'smooth')">scrollToOffset(4000) with smooth</button>
     </div>
-    <VirtualList itemClassName="demo-list-item" style="height: 400px" :count="10000" :size="60" @ready="onReady">
+    <VirtualList
+      itemClassName="demo-list-item"
+      style="height: 750px; width: 400px"
+      :overscan="4"
+      :size="() => randomSize() + 80"
+      :count="10000"
+      :lanes="2"
+      :gap="8"
+      @ready="onReady"
+    >
       <template #default="{ index }">
-        <div :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'">第 {{ index }} 行</div>
+        <div
+          :style="{ backgroundColor: randomColors[index % randomColors.length] }"
+          :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'"
+        />
       </template>
     </VirtualList>
   </div>

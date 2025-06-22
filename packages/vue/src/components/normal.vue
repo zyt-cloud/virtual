@@ -38,8 +38,8 @@ onMounted(() => {
         gridTemplateRows: `repeat(${horizontal ? lanes : 1}, 1fr)`,
         alignItems: dynamicSize && !horizontal ? 'start' : 'stretch',
         justifyItems: dynamicSize && horizontal ? 'start' : 'stretch',
-        columnGap: horizontal ? void 0 : props.gap,
-        rowGap: horizontal ? props.gap : void 0,
+        columnGap: horizontal ? void 0 : `${props.gap}px`,
+        rowGap: horizontal ? `${props.gap}px` : void 0,
         height: props.horizontal ? '100%' : `${totalSize}px`,
         width: props.horizontal ? `${totalSize}px` : '100%',
       }"

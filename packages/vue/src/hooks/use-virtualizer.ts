@@ -8,14 +8,14 @@ export function useVirualizer(props: MayBeRef<VirtualListProps>, containerRef: R
   const virtualizerRef = shallowRef<VirtualizerInstance>()
 
   watch(
-    () => unref(props),
-    (newProps) => {
-      const { onChange, followPageScroll, ...restOptions } = newProps
+    [() => unref(props), containerRef],
+    ([newProps, container]) => {
+      const { onChange, followPageScroll, scrollMargin, ...restOptions } = newProps
 
       const options: VirtualizerOptions<HTMLElement | Window> = {
         getScrollElement: () => (followPageScroll ? window : containerRef.value),
-        scrollMargin: followPageScroll ? getElementOffsetTop(containerRef.value) : 0,
         ...restOptions,
+        scrollMargin: scrollMargin ?? (followPageScroll ? getElementOffsetTop(container) : 0),
         onChange: (scrolling) => {
           triggerRef(virtualizerRef)
           onChange?.(scrolling)

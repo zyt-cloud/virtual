@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { type VirtualizerInstance, VirtualList } from '@z-cloud/virtual-vue';
-import { ref } from 'vue';
+import { type VirtualizerInstance, VirtualList } from '@z-cloud/virtual-vue'
+import { ref } from 'vue'
+import { randomSize, randomColors } from '../../utils'
 
-const instanceRef = ref<VirtualizerInstance>();
+const instanceRef = ref<VirtualizerInstance>()
 
 const onReady = (virtualizer: VirtualizerInstance) => {
-  instanceRef.value = virtualizer;
-};
+  instanceRef.value = virtualizer
+}
 </script>
 
 <template>
@@ -21,13 +22,18 @@ const onReady = (virtualizer: VirtualizerInstance) => {
     <VirtualList
       itemClassName="demo-list-item"
       horizontal
-      style="height: 100px; width: 100%"
+      style="height: 400px"
+      :size="() => randomSize() + 80"
       :count="10000"
-      :size="100"
+      :lanes="2"
+      :gap="8"
       @ready="onReady"
     >
       <template #default="{ index }">
-        <div :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'">第 {{ index }} 列</div>
+        <div
+          :style="{ backgroundColor: randomColors[index % randomColors.length] }"
+          :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'"
+        />
       </template>
     </VirtualList>
   </div>
