@@ -25,7 +25,7 @@ const dynamicSizes = new Array(10000).fill(true).map(() => Math.round(Math.rando
     >
       <template #default="{ index }">
         <div
-          :style="{ backgroundColor: randomColors[index % randomColors.length], height: dynamicSizes[index] }"
+          :style="{ backgroundColor: randomColors[index % randomColors.length], height: `${dynamicSizes[index]}px` }"
           :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'"
         />
       </template>

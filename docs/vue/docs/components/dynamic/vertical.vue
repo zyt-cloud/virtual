@@ -27,7 +27,7 @@ const onReady = (virtualizer: VirtualizerInstance) => {
       @ready="onReady"
     >
       <template #default="{ index }">
-        <div :style="{ height: dynamicSizes[index] }" :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'">
+        <div :style="{ height: `${dynamicSizes[index]}px` }" :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'">
           第 {{ index }} 行
         </div>
       </template>
