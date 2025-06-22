@@ -14,4 +14,4 @@
 
 ## 跟随页面滚动的瀑布流
 
-见页面滚动示例
+<demo vue="waterfall/page.vue" />
