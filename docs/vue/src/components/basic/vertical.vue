@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { VirtualList } from '@z-cloud/virtual-vue'
+import { type VirtualizerInstance, VirtualList } from '@z-cloud/virtual-vue'
+
+const onReady = (virtualizer: VirtualizerInstance) => {
+  console.log('ready', virtualizer)
+}
 </script>
 
 <template>
   <div>
-    <VirtualList :count="1000" :size="60"></VirtualList>
+    <VirtualList :count="1000" :size="60" @ready="onReady"></VirtualList>
   </div>
 </template>

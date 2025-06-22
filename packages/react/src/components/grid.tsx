@@ -37,9 +37,17 @@ export function GridVirtualList({
   const colTotalSize = colVirtualizer.getTotalSize();
 
   useIsomorphicLayoutEffect(() => {
+    rowVirtualizer.init();
+    colVirtualizer.init();
+
     if (rowVirtualizer && colVirtualizer) {
       onReady?.(rowVirtualizer, colVirtualizer);
     }
+
+    return () => {
+      rowVirtualizer.clean();
+      colVirtualizer.clean();
+    };
   }, [rowVirtualizer, colVirtualizer]);
 
   return (
