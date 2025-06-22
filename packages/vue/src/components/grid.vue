@@ -4,7 +4,7 @@ import { useVirualizer } from '../hooks/use-virtualizer'
 import type { VirtualListProps } from '../typings'
 
 const props = defineProps<VirtualListProps>()
-const emit = defineEmits(['change', 'ready'])
+const emit = defineEmits(['ready'])
 
 const containerRef = ref<HTMLDivElement | null>(null)
 const rowVirtualizerRef = useVirualizer(
@@ -55,7 +55,8 @@ onMounted(() => {
             transform: `translate(${colItem.start}px,${rowItem.start}px)`,
           }"
         >
-          <slot :rowItem="rowItem" :colItem="colItem" />
+          <slot v-bind="rowItem" />
+          <slot name="grid" :rowItem="rowItem" :colItem="colItem" />
         </div>
       </template>
     </div>

@@ -76,10 +76,6 @@
    * @returns
    */
   onChange?: (scrolling: boolean) => void;
-  /**
-   * grid布局时接收第二个参数，列的数据
-   */
-  children: (item: VirtualItem, colItem?: VirtualItem) => React.ReactNode;
   // 虚拟器实例可用 开启 grid 时接收第二个参数获取列的实例
   onReady?: (
     virtualizer: BrowserVirtualizer<HTMLElement | Window, HTMLElement>,

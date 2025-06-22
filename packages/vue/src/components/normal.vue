@@ -4,7 +4,7 @@ import { useVirualizer } from '../hooks/use-virtualizer'
 import type { VirtualListProps } from '../typings'
 
 const props = defineProps<VirtualListProps>()
-const emit = defineEmits(['change', 'ready'])
+const emit = defineEmits(['ready'])
 
 const containerRef = ref<HTMLDivElement | null>(null)
 const virtualizerRef = useVirualizer(props, containerRef)

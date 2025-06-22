@@ -1,21 +1,16 @@
-import path from 'node:path';
-import { defineConfig } from 'vitepress';
-import { vitepressDemoPlugin } from 'vitepress-demo-plugin';
+import path from 'node:path'
+import { defineConfig } from 'vitepress'
+import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 
 const alias = ['vue', 'browser', 'vanilla'].reduce((prev, name) => {
-  prev[`@z-cloud/virtual-${name}`] = path.join(
-    process.cwd(),
-    '../../',
-    `packages/${name}/src`,
-  );
-  return prev;
-}, {});
+  prev[`@z-cloud/virtual-${name}`] = path.join(process.cwd(), '../../', `packages/${name}/src`)
+  return prev
+}, {})
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: '两颗樱桃',
-  description:
-    '基于浏览器的虚拟列表实现, Vue virtual, VirtualList, virtual list',
+  description: '基于浏览器的虚拟列表实现, Vue virtual, VirtualList, virtual list',
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   vite: {
     resolve: {
@@ -29,7 +24,7 @@ export default defineConfig({
     config: (md) => {
       md.use(vitepressDemoPlugin, {
         demoDir: path.resolve(__dirname, '../components'),
-      });
+      })
     },
   },
   themeConfig: {
@@ -51,15 +46,16 @@ export default defineConfig({
             { text: '虚拟器实例', link: '/guide/instance' },
             {
               text: '示例',
-              items: [{ text: '基础使用', link: '/guide/demo/basic' }],
+              items: [
+                { text: '基础使用', link: '/guide/demo/basic' },
+                { text: '瀑布流', link: '/guide/demo/waterfall' },
+              ],
             },
           ],
         },
       ],
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/zyt-cloud/virtual' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/zyt-cloud/virtual' }],
   },
-});
+})
