@@ -57,7 +57,7 @@ onMounted(() => {
           width: !horizontal || dynamicSize ? void 0 : `${virtualItem.size}px`,
           transform: props.horizontal
             ? `translateX(${virtualItem.start}px)`
-            : `translateY(${virtualItem.start - (props.followPageScroll ? (virtualizerRef?.options.scrollMargin ?? 0) : 0)}px)`,
+            : `translateY(${virtualItem.start - (virtualizerRef?.options.scrollMargin ?? 0)}px)`,
         }"
       >
         <slot v-bind="virtualItem" />

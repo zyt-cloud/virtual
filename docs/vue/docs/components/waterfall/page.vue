@@ -20,7 +20,6 @@ const show = ref(false)
       :count="10000"
       :lanes="2"
       :gap="8"
-      :scrollMargin="2047 + 112"
     >
       <template #default="{ index }">
         <div

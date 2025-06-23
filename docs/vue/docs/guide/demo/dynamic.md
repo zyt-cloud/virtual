@@ -12,4 +12,4 @@
 
 ## 瀑布流模式
 
-<demo vue="waterfall/page.vue" />
+<demo vue="dynamic/waterfall.vue" />
