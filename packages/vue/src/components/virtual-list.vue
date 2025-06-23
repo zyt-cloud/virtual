@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<VirtualListProps>(), {
 })
 
 const attrs = useAttrs()
-const mergedProps = mergeProps(attrs as any, props) as unknown as VirtualListProps
+const mergedProps = mergeProps(attrs, props) as unknown as VirtualListProps
 
 const slots = defineSlots<{
   default(props: VirtualItem): any

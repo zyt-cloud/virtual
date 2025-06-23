@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { VirtualList } from '@z-cloud/virtual-vue'
-import { randomColors } from '../../utils'
+import { randomColors, randomSize } from '../../utils'
 
-const dynamicSizes = new Array(10000).fill(true).map(() => Math.round(Math.random() * 80 + 80))
+const dynamicSizes = new Array(10000).fill(true).map(() => randomSize() + 80)
 </script>
 
 <template>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { type VirtualizerInstance, VirtualList } from '@z-cloud/virtual-vue'
 import { ref } from 'vue'
+import { randomSize } from '../../utils'
 
 const instanceRef = ref<VirtualizerInstance>()
-const dynamicSizes = new Array(10000).fill(true).map(() => Math.round(Math.random() * 80 + 30))
+const dynamicSizes = new Array(10000).fill(true).map(() => randomSize() + 30)
 
 const onReady = (virtualizer: VirtualizerInstance) => {
   instanceRef.value = virtualizer
