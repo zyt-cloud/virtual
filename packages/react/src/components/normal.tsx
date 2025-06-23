@@ -1,9 +1,6 @@
-import { VirtualListProps } from '../typings';
-import {
-  useIsomorphicLayoutEffect,
-  useVirualizer,
-} from '../hooks/use-virtualizer';
-import { useRef } from 'react';
+import { VirtualListProps } from '../typings'
+import { useIsomorphicLayoutEffect, useVirualizer } from '../hooks/use-virtualizer'
+import { useRef } from 'react'
 
 /**
  * @param param0
@@ -19,33 +16,29 @@ export function NormalVirtualList({
   onReady,
   ...props
 }: VirtualListProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const virtualizer = useVirualizer(props, containerRef);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const virtualizer = useVirualizer(props, containerRef)
 
-  const { lanes = 1, horizontal } = props;
-  const totalSize = virtualizer.getTotalSize();
+  const { lanes = 1, horizontal } = props
+  const totalSize = virtualizer.getTotalSize()
 
   let gridTemplateAreas = Array.from({ length: lanes }, (_, index) =>
     horizontal ? `"lane${index}"` : `lane${index}`,
-  ).join(' ');
+  ).join(' ')
 
   if (!horizontal) {
-    gridTemplateAreas = `"${gridTemplateAreas}"`;
+    gridTemplateAreas = `"${gridTemplateAreas}"`
   }
 
   useIsomorphicLayoutEffect(() => {
-    virtualizer.init();
-    onReady?.(virtualizer);
+    virtualizer.init(props.followPageScroll ? window : containerRef.current!)
+    onReady?.(virtualizer)
 
-    return () => virtualizer.clean();
-  }, [virtualizer]);
+    return () => virtualizer.clean()
+  }, [virtualizer])
 
   return (
-    <div
-      className={className}
-      style={{ overflow: 'auto', ...style }}
-      ref={containerRef}
-    >
+    <div className={className} style={{ overflow: 'auto', ...style }} ref={containerRef}>
       <div
         style={{
           display: 'grid',
@@ -81,5 +74,5 @@ export function NormalVirtualList({
         ))}
       </div>
     </div>
-  );
+  )
 }

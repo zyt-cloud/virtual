@@ -22,7 +22,7 @@ const totalSize = computed(() => virtualizerRef.value?.getTotalSize() ?? 0)
 
 onMounted(() => {
   if (virtualizerRef.value) {
-    virtualizerRef.value.init()
+    virtualizerRef.value.init(props.followPageScroll ? window : containerRef.value!)
     emit('ready', virtualizerRef.value)
   }
 })

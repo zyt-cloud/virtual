@@ -1,9 +1,6 @@
-import { VirtualListProps } from '../typings';
-import {
-  useVirualizer,
-  useIsomorphicLayoutEffect,
-} from '../hooks/use-virtualizer';
-import { Fragment, useRef } from 'react';
+import { VirtualListProps } from '../typings'
+import { useVirualizer, useIsomorphicLayoutEffect } from '../hooks/use-virtualizer'
+import { Fragment, useRef } from 'react'
 
 /**
  * grid 模式暂不支持动态尺寸
@@ -22,40 +19,34 @@ export function GridVirtualList({
   onReady,
   ...props
 }: VirtualListProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const rowVirtualizer = useVirualizer(
-    { ...props, size: gridSize?.[1] ?? size },
-    containerRef,
-  );
+  const containerRef = useRef<HTMLDivElement>(null)
+  const rowVirtualizer = useVirualizer({ ...props, size: gridSize?.[1] ?? size }, containerRef)
 
   const colVirtualizer = useVirualizer(
     { ...props, size: gridSize?.[0] ?? size, horizontal: true },
     containerRef,
-  );
+  )
 
-  const rowTotalSize = rowVirtualizer.getTotalSize();
-  const colTotalSize = colVirtualizer.getTotalSize();
+  const rowTotalSize = rowVirtualizer.getTotalSize()
+  const colTotalSize = colVirtualizer.getTotalSize()
 
   useIsomorphicLayoutEffect(() => {
-    rowVirtualizer.init();
-    colVirtualizer.init();
+    const scrollElement = props.followPageScroll ? window : containerRef.current!
+    rowVirtualizer.init(scrollElement)
+    colVirtualizer.init(scrollElement)
 
     if (rowVirtualizer && colVirtualizer) {
-      onReady?.(rowVirtualizer, colVirtualizer);
+      onReady?.(rowVirtualizer, colVirtualizer)
     }
 
     return () => {
-      rowVirtualizer.clean();
-      colVirtualizer.clean();
-    };
-  }, [rowVirtualizer, colVirtualizer]);
+      rowVirtualizer.clean()
+      colVirtualizer.clean()
+    }
+  }, [rowVirtualizer, colVirtualizer])
 
   return (
-    <div
-      className={className}
-      style={{ overflow: 'auto', ...style }}
-      ref={containerRef}
-    >
+    <div className={className} style={{ overflow: 'auto', ...style }} ref={containerRef}>
       <div
         style={{
           height: rowTotalSize,
@@ -70,7 +61,6 @@ export function GridVirtualList({
               <div
                 key={colItem.index}
                 className={itemClassName}
-                // ref={virtualizer.elementMounted}
                 style={{
                   ...itemStyle,
                   gridArea: 'item',
@@ -86,5 +76,5 @@ export function GridVirtualList({
         ))}
       </div>
     </div>
-  );
+  )
 }

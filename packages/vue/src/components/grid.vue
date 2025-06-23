@@ -17,17 +17,24 @@ const colVirtualizerRef = useVirualizer(
 )
 
 const virtualItems = computed(() => {
-  return [rowVirtualizerRef.value?.getVirtualItems() ?? [], colVirtualizerRef.value?.getVirtualItems() ?? []]
+  return [
+    rowVirtualizerRef.value?.getVirtualItems() ?? [],
+    colVirtualizerRef.value?.getVirtualItems() ?? [],
+  ]
 })
 
 const totalSize = computed(() => {
-  return [rowVirtualizerRef.value?.getTotalSize() ?? 0, colVirtualizerRef.value?.getTotalSize() ?? 0]
+  return [
+    rowVirtualizerRef.value?.getTotalSize() ?? 0,
+    colVirtualizerRef.value?.getTotalSize() ?? 0,
+  ]
 })
 
 onMounted(() => {
   if (rowVirtualizerRef.value && colVirtualizerRef.value) {
-    rowVirtualizerRef.value.init()
-    colVirtualizerRef.value.init()
+    const scrollElement = props.followPageScroll ? window : containerRef.value!
+    rowVirtualizerRef.value.init(scrollElement)
+    colVirtualizerRef.value.init(scrollElement)
     emit('ready', rowVirtualizerRef.value, colVirtualizerRef.value)
   }
 })

@@ -1,10 +1,17 @@
-import { BrowserVirtualizer, getElementOffsetTop, type VirtualizerOptions } from '@z-cloud/virtual-browser'
+import {
+  BrowserVirtualizer,
+  getElementOffsetTop,
+  type VirtualizerOptions,
+} from '@z-cloud/virtual-browser'
 import type { VirtualListProps, VirtualizerInstance } from '../typings'
 import { unref, shallowRef, onScopeDispose, watch, type Ref, triggerRef } from 'vue'
 
 type MayBeRef<T> = T | Ref<T>
 
-export function useVirualizer(props: MayBeRef<VirtualListProps>, containerRef: Ref<HTMLElement | null>) {
+export function useVirualizer(
+  props: MayBeRef<VirtualListProps>,
+  containerRef: Ref<HTMLElement | null>,
+) {
   const virtualizerRef = shallowRef<VirtualizerInstance>()
 
   watch(
@@ -13,7 +20,6 @@ export function useVirualizer(props: MayBeRef<VirtualListProps>, containerRef: R
       const { onChange, followPageScroll, scrollMargin, ...restOptions } = newProps
 
       const options: VirtualizerOptions<HTMLElement | Window> = {
-        getScrollElement: () => (followPageScroll ? window : containerRef.value),
         ...restOptions,
         scrollMargin: scrollMargin ?? (followPageScroll ? getElementOffsetTop(container) : 0),
         onChange: (scrolling) => {
