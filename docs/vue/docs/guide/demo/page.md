@@ -1,4 +1,4 @@
-# 页面滚动
+# 跟随页面滚动
 
 ::: tip
 开启跟随页面滚动只需要配置 `followPageScroll` 为 `true`，并且不需要指定 `VirtualList` 的宽度或者高度

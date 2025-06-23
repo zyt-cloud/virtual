@@ -49,7 +49,7 @@ export default defineConfig({
               items: [
                 { text: '基础使用', link: '/guide/demo/basic' },
                 { text: '瀑布流', link: '/guide/demo/waterfall' },
-                { text: '页面滚动', link: '/guide/demo/page' },
+                { text: '跟随页面滚动', link: '/guide/demo/page' },
                 { text: '动态尺寸', link: '/guide/demo/dynamic' },
               ],
             },
