@@ -4,7 +4,7 @@ import { ref } from 'vue'
 import { randomSize } from '../../utils'
 
 const instanceRef = ref<VirtualizerInstance>()
-const dynamicSizes = new Array(10000).fill(true).map(() => randomSize() + 30)
+const dynamicSizes = new Array(10000).fill(true).map(() => randomSize())
 
 const onReady = (virtualizer: VirtualizerInstance) => {
   instanceRef.value = virtualizer
@@ -28,7 +28,10 @@ const onReady = (virtualizer: VirtualizerInstance) => {
       @ready="onReady"
     >
       <template #default="{ index }">
-        <div :style="{ height: `${dynamicSizes[index]}px` }" :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'">
+        <div
+          :style="{ height: `${dynamicSizes[index]}px` }"
+          :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'"
+        >
           第 {{ index }} 行
         </div>
       </template>
