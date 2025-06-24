@@ -15,6 +15,10 @@
     "virtual-browser",
     "virtual list for browser"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "types": "dist/index.d.ts",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",

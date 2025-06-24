@@ -12,6 +12,10 @@
     "vue 瀑布流",
     "virtual-grid"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "types": "dist/index.d.ts",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
