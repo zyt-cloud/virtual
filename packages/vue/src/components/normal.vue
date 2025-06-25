@@ -38,10 +38,10 @@ onMounted(() => {
         gridTemplateRows: `repeat(${horizontal ? lanes : 1}, 1fr)`,
         alignItems: dynamicSize && !horizontal ? 'start' : 'stretch',
         justifyItems: dynamicSize && horizontal ? 'start' : 'stretch',
-        columnGap: horizontal ? void 0 : `${props.gap}px`,
-        rowGap: horizontal ? `${props.gap}px` : void 0,
-        height: props.horizontal ? '100%' : `${totalSize}px`,
-        width: props.horizontal ? `${totalSize}px` : '100%',
+        columnGap: horizontal ? void 0 : `${gap}px`,
+        rowGap: horizontal ? `${gap}px` : void 0,
+        height: horizontal ? '100%' : `${totalSize}px`,
+        width: horizontal ? `${totalSize}px` : '100%',
       }"
     >
       <div
@@ -55,7 +55,7 @@ onMounted(() => {
           gridArea: `lane${virtualItem.lane}`,
           height: horizontal || dynamicSize ? void 0 : `${virtualItem.size}px`,
           width: !horizontal || dynamicSize ? void 0 : `${virtualItem.size}px`,
-          transform: props.horizontal
+          transform: horizontal
             ? `translateX(${virtualItem.start}px)`
             : `translateY(${virtualItem.start - (virtualizerRef?.options.scrollMargin ?? 0)}px)`,
         }"
