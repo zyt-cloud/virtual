@@ -34,12 +34,12 @@ onMounted(() => {
       :style="{
         display: 'grid',
         gridTemplateAreas,
-        gridTemplateColumns: `repeat(${horizontal ? 1 : lanes}, 1fr)`,
-        gridTemplateRows: `repeat(${horizontal ? lanes : 1}, 1fr)`,
+        gridTemplateColumns: `repeat(${horizontal ? 1 : (lanes ?? 1)}, 1fr)`,
+        gridTemplateRows: `repeat(${horizontal ? (lanes ?? 1) : 1}, 1fr)`,
         alignItems: dynamicSize && !horizontal ? 'start' : 'stretch',
         justifyItems: dynamicSize && horizontal ? 'start' : 'stretch',
-        columnGap: horizontal ? void 0 : `${gap}px`,
-        rowGap: horizontal ? `${gap}px` : void 0,
+        columnGap: horizontal ? void 0 : `${gap ?? 0}px`,
+        rowGap: horizontal ? `${gap ?? 0}px` : void 0,
         height: horizontal ? '100%' : `${totalSize}px`,
         width: horizontal ? `${totalSize}px` : '100%',
       }"
