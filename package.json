@@ -5,6 +5,7 @@
     "build": "turbo run build --filter=./packages/*",
     "build:force": "turbo run build --filter=./packages/* --force",
     "build:docs": "turbo run build --filter=./docs/*",
+    "version-bump": "npm run build && changeset version",
     "dev": "turbo run dev",
     "start-vue": "turbo run dev --filter=@z-cloud/virtual-vue-docs",
     "start-react": "turbo run dev --filter=@z-cloud/virtual-react-docs",
@@ -13,6 +14,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.5",
     "@types/node": "catalog:",
     "@z-cloud/eslint-config": "workspace:^",
     "@z-cloud/typescript-config": "workspace:^",
@@ -22,7 +24,7 @@
     "typescript": "catalog:",
     "vite": "catalog:"
   },
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.12.3",
   "engines": {
     "node": ">=18"
   }

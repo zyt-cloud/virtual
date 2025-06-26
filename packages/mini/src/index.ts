@@ -61,7 +61,7 @@ export class MiniVirtualizer extends BasicVirtualizer {
   }, 160)
 
   public onScroll(res: ScrollOption) {
-    if (!res?.scrollTop) {
+    if (!res) {
       return
     }
 

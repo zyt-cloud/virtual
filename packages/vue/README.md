@@ -1,1 +1,1 @@
-# Vue 3 + virtual-list
+# virtual-list for Vue 3
