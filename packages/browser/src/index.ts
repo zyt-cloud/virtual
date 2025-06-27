@@ -1,9 +1,9 @@
 import { BasicVirtualizer, debounce } from '@z-cloud/virtual-vanilla'
-import type { Key, Rect, ScrollToOptions } from '@z-cloud/virtual-vanilla'
+import type { Key, Rect, ScrollToOptions, VirtualItem } from '@z-cloud/virtual-vanilla'
 import type { VirtualizerOptions } from './typings'
 
 export { getElementOffsetTop } from './utils'
-export type { VirtualizerOptions }
+export type { VirtualizerOptions, VirtualItem }
 
 const eventListenerOptions = {
   passive: true,
@@ -59,7 +59,9 @@ export class BrowserVirtualizer<
     this.initElementObserver()
 
     this.scrollToOffset(
-      typeof this.options.initialOffset === 'function' ? this.options.initialOffset() : this.options.initialOffset,
+      typeof this.options.initialOffset === 'function'
+        ? this.options.initialOffset()
+        : this.options.initialOffset,
     )
     this.notify()
   }
@@ -194,7 +196,10 @@ export class BrowserVirtualizer<
       return
     }
 
-    this.handleElementSizeChange(element, this.options.horizontal ? element.offsetWidth : element.offsetHeight)
+    this.handleElementSizeChange(
+      element,
+      this.options.horizontal ? element.offsetWidth : element.offsetHeight,
+    )
   }
 
   private resetScolling = debounce(() => {

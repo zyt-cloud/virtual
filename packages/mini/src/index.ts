@@ -4,10 +4,11 @@ import {
   type Key,
   type Rect,
   type ScrollToOptions,
+  type VirtualItem,
 } from '@z-cloud/virtual-vanilla'
 import type { VirtualizerOptions, ScrollOption } from './typings'
 
-export type { VirtualizerOptions }
+export type { VirtualizerOptions, VirtualItem }
 
 export class MiniVirtualizer extends BasicVirtualizer {
   private scrollToIndexTimeoutId: any | null = null

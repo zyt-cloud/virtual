@@ -3,7 +3,7 @@ import NormalVirtualList from './normal.vue'
 import GridVirtualList from './grid.vue'
 import type { VirtualListProps } from '../typings'
 import { mergeProps, defineSlots, useAttrs } from 'vue'
-import { type VirtualItem } from '@z-cloud/virtual-vanilla'
+import { type VirtualItem } from '@z-cloud/virtual-browser'
 
 const props = withDefaults(defineProps<VirtualListProps>(), {
   dynamicSize: false,

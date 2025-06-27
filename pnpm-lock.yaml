@@ -199,9 +199,6 @@ importers:
       '@z-cloud/virtual-browser':
         specifier: workspace:^
         version: link:../browser
-      '@z-cloud/virtual-vanilla':
-        specifier: workspace:^
-        version: link:../vanilla
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.2.3

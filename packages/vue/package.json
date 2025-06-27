@@ -42,8 +42,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@z-cloud/virtual-browser": "workspace:^",
-    "@z-cloud/virtual-vanilla": "workspace:^"
+    "@z-cloud/virtual-browser": "workspace:^"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
