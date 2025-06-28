@@ -51,7 +51,7 @@ export class MiniVirtualizer extends BasicVirtualizer {
       this.pendingDynamicSizeIndexes.push(index)
       this.scrolling = false
       // 尺寸变化清空函数 geItemsWithtMemo 的缓存 使其下次调用重新计算
-      this.clearFnMemo(['geItemsWithtMemo'])
+      this.clearFnMemo(['geItemsWithtMemo', 'notifyWithMemo'])
       this.notify()
     }
   }

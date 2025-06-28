@@ -1,0 +1,6 @@
+{
+  "extends": "@z-cloud/typescript-config/react-library.json",
+  "include": [
+    "src"
+  ]
+}

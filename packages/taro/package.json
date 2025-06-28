@@ -1,0 +1,60 @@
+{
+  "name": "@z-cloud/virtual-taro",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "react-virtual for taro",
+    "virtual",
+    "virtual-list",
+    "virtual-waterfall",
+    "react 虚拟列表",
+    "react 瀑布流",
+    "taro virtual-grid"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@z-cloud/virtual-mini": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "@tarojs/components": "4.1.2",
+    "@tarojs/taro": "4.1.2",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
+    "@tarojs/components": "*",
+    "@tarojs/taro": "*"
+  }
+}

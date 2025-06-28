@@ -1,0 +1,101 @@
+{
+  "id": "zcloud-virtual",
+  "name": "@z-cloud/virtual-uni",
+  "displayName": "zcloud-virtual-list 虚拟列表、虚拟瀑布流、虚拟grid",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "一个基于Vue3 + TS开发的虚拟列表，支持瀑布流、grid的组件。",
+  "keywords": [
+    "virtual",
+    "虚拟列表",
+    "virtual-list",
+    "waterfall"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "components",
+    "utils",
+    "hooks",
+    "README.md",
+    "typings.ts"
+  ],
+  "engines": {
+    "HBuilderX": "^3.8.7"
+  },
+  "dcloudext": {
+    "category": [
+      "前端组件",
+      "通用组件"
+    ],
+    "type": "component-vue",
+    "sale": {
+      "regular": {
+        "price": "0.00"
+      }
+    },
+    "contact": {
+      "qq": "568939352"
+    },
+    "declaration": {
+      "ads": "无",
+      "data": "插件不采集任何数据",
+      "permissions": "无"
+    },
+    "npmurl": ""
+  },
+  "dependencies": {
+    "@z-cloud/virtual-mini": "^1.0.1",
+    "@z-cloud/resizable-uni": "^1.0.2"
+  },
+  "uni_modules": {
+    "dependencies": [],
+    "encrypt": [],
+    "platforms": {
+      "client": {
+        "Vue": {
+          "vue2": "n",
+          "vue3": "y"
+        },
+        "App": {
+          "app-vue": "y",
+          "app-nvue": "n",
+          "app-uvue": "n"
+        },
+        "H5-mobile": {
+          "Safari": "y",
+          "Android Browser": "y",
+          "微信浏览器(Android)": "y",
+          "QQ浏览器(Android)": "y"
+        },
+        "H5-pc": {
+          "Chrome": "y",
+          "IE": "u",
+          "Edge": "y",
+          "Firefox": "y",
+          "Safari": "y"
+        },
+        "小程序": {
+          "微信": "y",
+          "阿里": "y",
+          "百度": "u",
+          "字节跳动": "u",
+          "QQ": "y",
+          "钉钉": "y",
+          "快手": "u",
+          "飞书": "u",
+          "京东": "u"
+        },
+        "快应用": {
+          "华为": "u",
+          "联盟": "u"
+        }
+      }
+    }
+  },
+  "peerDependencies": {
+    "vue": ">=3.2.47"
+  }
+}
