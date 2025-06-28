@@ -1,7 +1,7 @@
 {
   "name": "@z-cloud/virtual-mini",
   "description": "提供Taro，uni-app的虚拟列表公共类",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",

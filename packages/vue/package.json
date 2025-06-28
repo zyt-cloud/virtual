@@ -1,6 +1,5 @@
 {
   "name": "@z-cloud/virtual-vue",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "keywords": [

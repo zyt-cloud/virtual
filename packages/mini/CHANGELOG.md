@@ -1,5 +1,11 @@
 # @z-cloud/virtual-mini
 
+## 1.0.2
+
+### Patch Changes
+
+- add types
+
 ## 1.0.1
 
 ### Patch Changes
