@@ -56,7 +56,7 @@ export class MiniVirtualizer extends BasicVirtualizer {
     }
   }
 
-  private resetScolling = debounce(() => {
+  private resetScrolling = debounce(() => {
     this.scrolling = false
     this.notify()
   }, 160)
@@ -66,9 +66,17 @@ export class MiniVirtualizer extends BasicVirtualizer {
       return
     }
 
-    this.scrollOffset = res[this.options.horizontal ? 'scrollLeft' : 'scrollTop']
+    const offset = res[this.options.horizontal ? 'scrollLeft' : 'scrollTop'] ?? 0
+
+    // 减少一定频率
+    if (typeof this.scrollOffset !== 'undefined' && Math.abs(this.scrollOffset - offset) < 5) {
+      this.scrollOffset = offset
+      return
+    }
+
+    this.scrollOffset = offset
     this.scrolling = true
-    this.resetScolling({ clearTimeout, setTimeout } as any)
+    this.resetScrolling({ clearTimeout, setTimeout } as any)
     this.notify()
   }
 

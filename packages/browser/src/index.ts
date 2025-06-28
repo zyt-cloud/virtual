@@ -202,7 +202,7 @@ export class BrowserVirtualizer<
     )
   }
 
-  private resetScolling = debounce(() => {
+  private resetScrolling = debounce(() => {
     this.scrolling = false
     this.notify()
   }, 160)
@@ -228,7 +228,7 @@ export class BrowserVirtualizer<
 
       this.scrollOffset = offset
       this.scrolling = true
-      this.resetScolling(this.targetWindow!)
+      this.resetScrolling(this.targetWindow!)
       this.notify()
     }
 
