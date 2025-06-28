@@ -8,7 +8,12 @@ const emit = defineEmits(['ready'])
 
 const containerRef = ref<HTMLDivElement | null>(null)
 const rowVirtualizerRef = useVirualizer(
-  computed(() => ({ ...unref(props), size: props.gridSize?.[1] ?? props.size })),
+  computed(() => ({
+    ...unref(props),
+    size: props.gridSize?.[1] ?? props.size,
+    // grid 模式当前虚拟器只能竖向滚动
+    horizontal: false,
+  })),
   containerRef,
 )
 const colVirtualizerRef = useVirualizer(

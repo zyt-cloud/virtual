@@ -20,7 +20,15 @@ export function GridVirtualList({
   ...props
 }: VirtualListProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const rowVirtualizer = useVirualizer({ ...props, size: gridSize?.[1] ?? size }, containerRef)
+  const rowVirtualizer = useVirualizer(
+    {
+      ...props,
+      size: gridSize?.[1] ?? size,
+      // grid 模式当前虚拟器只能竖向滚动
+      horizontal: false,
+    },
+    containerRef,
+  )
 
   const colVirtualizer = useVirualizer(
     { ...props, size: gridSize?.[0] ?? size, horizontal: true },
