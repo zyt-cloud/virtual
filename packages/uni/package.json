@@ -52,8 +52,8 @@
     "url": "https://github.com/zyt-cloud/virtual"
   },
   "dependencies": {
-    "@z-cloud/virtual-mini": "^1.0.5",
-    "@z-cloud/resizable-uni": "^1.0.2"
+    "@z-cloud/virtual-mini": "workspace:^",
+    "@z-cloud/resizable-uni": "workspace:^"
   },
   "uni_modules": {
     "dependencies": [],
