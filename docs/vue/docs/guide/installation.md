@@ -13,3 +13,15 @@ pnpm add @z-cloud/virtual-vue
 ```bash
 pnpm add @z-cloud/virtual-react
 ```
+
+## Taro Virtual
+
+```bash
+pnpm add @z-cloud/virtual-taro
+```
+
+## uni-app Virtual
+
+```bash
+pnpm add @z-cloud/virtual-uni
+```

@@ -35,6 +35,14 @@ export default defineConfig({
     nav: [
       { text: '指南', link: '/guide', activeMatch: '/guide' },
       { text: '联系我', link: '/contact', activeMatch: '/contact' },
+      {
+        text: '其他链接',
+        items: [
+          { text: 'Virtual React', link: 'https://www.npmjs.com/package/@z-cloud/virtual-react' },
+          { text: 'Virtual Taro', link: 'https://www.npmjs.com/package/@z-cloud/virtual-taro' },
+          { text: 'Virtual uni-app', link: 'https://www.npmjs.com/package/@z-cloud/virtual-uni' },
+        ],
+      },
     ],
 
     sidebar: {
