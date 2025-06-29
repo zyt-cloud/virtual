@@ -1,5 +1,13 @@
 # @z-cloud/virtual-mini
 
+## 1.0.5
+
+### Patch Changes
+
+- add homepage add repository
+- Updated dependencies
+  - @z-cloud/virtual-vanilla@1.0.3
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@z-cloud/virtual-browser",
   "description": "适用于浏览器端的虚拟列表类",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +15,7 @@
     "virtual-browser",
     "virtual list for browser"
   ],
+  "homepage": "https://zyt-cloud.github.io/virtual/index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/zyt-cloud/virtual"

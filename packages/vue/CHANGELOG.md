@@ -1,5 +1,13 @@
 # @z-cloud/virtual-vue
 
+## 1.0.3
+
+### Patch Changes
+
+- add homepage add repository
+- Updated dependencies
+  - @z-cloud/virtual-browser@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

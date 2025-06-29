@@ -1,5 +1,13 @@
 # @z-cloud/virtual-react-docs
 
+## 1.0.3
+
+### Patch Changes
+
+- add homepage add repository
+- Updated dependencies
+  - @z-cloud/virtual-react@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

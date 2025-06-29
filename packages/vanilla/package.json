@@ -1,7 +1,7 @@
 {
   "name": "@z-cloud/virtual-vanilla",
   "description": "提供跨平台（浏览器，小程序）的虚拟列表公共基类",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +14,11 @@
     "virtual",
     "virtual-vanilla"
   ],
+  "homepage": "https://zyt-cloud.github.io/virtual/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zyt-cloud/virtual"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
