@@ -10,9 +10,14 @@
     "activeMatch": "/contact/"
   },
   {
+    "text": "一杯咖啡",
+    "link": "/coffee/",
+    "activeMatch": "/coffee/"
+  },
+  {
     "text": "其他链接",
     "items": [
-      { "text": "Virtual Vue", "link": "https://www.npmjs.com/package/@z-cloud/virtual-vue" },
+      { "text": "Virtual Vue", "link": "https://zyt-cloud.github.io/virtual/vue/" },
       { "text": "Virtual Taro", "link": "https://www.npmjs.com/package/@z-cloud/virtual-taro" },
       { "text": "Virtual uni-app", "link": "https://www.npmjs.com/package/@z-cloud/virtual-uni" }
     ]

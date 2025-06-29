@@ -35,10 +35,11 @@ export default defineConfig({
     nav: [
       { text: '指南', link: '/guide', activeMatch: '/guide' },
       { text: '联系我', link: '/contact', activeMatch: '/contact' },
+      { text: '一杯咖啡', link: 'https://zyt-cloud.github.io/virtual/coffee/index.html' },
       {
         text: '其他链接',
         items: [
-          { text: 'Virtual React', link: 'https://www.npmjs.com/package/@z-cloud/virtual-react' },
+          { text: 'Virtual React', link: 'https://zyt-cloud.github.io/virtual/' },
           { text: 'Virtual Taro', link: 'https://www.npmjs.com/package/@z-cloud/virtual-taro' },
           { text: 'Virtual uni-app', link: 'https://www.npmjs.com/package/@z-cloud/virtual-uni' },
         ],
@@ -52,6 +53,7 @@ export default defineConfig({
           items: [
             { text: '介绍', link: '/guide/' },
             { text: '安装', link: '/guide/installation' },
+            { text: 'uni-app', link: '/guide/uni' },
             { text: '配置项', link: '/guide/config' },
             { text: '虚拟器实例', link: '/guide/instance' },
             {

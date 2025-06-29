@@ -1,4 +1,4 @@
-# 指南
+# 介绍
 
 感谢 [@tanstack/vue-virtual](https://tanstack.com/virtual/latest/docs/introduction) 的实现思路
 
