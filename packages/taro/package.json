@@ -1,6 +1,7 @@
 {
   "name": "@z-cloud/virtual-taro",
   "version": "1.0.1",
+  "description": "一个基于React + TS开发的虚拟列表，支持瀑布流、grid的组件。",
   "type": "module",
   "keywords": [
     "react-virtual for taro",

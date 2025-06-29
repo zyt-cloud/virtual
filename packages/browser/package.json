@@ -1,5 +1,6 @@
 {
   "name": "@z-cloud/virtual-browser",
+  "description": "适用于浏览器端的虚拟列表类",
   "version": "1.0.1",
   "type": "module",
   "scripts": {
