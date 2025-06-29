@@ -24,7 +24,7 @@
     "typescript": "catalog:",
     "vite": "catalog:"
   },
-  "packageManager": "pnpm@10.12.3",
+  "packageManager": "pnpm@10.12.4",
   "engines": {
     "node": ">=18"
   }

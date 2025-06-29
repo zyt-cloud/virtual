@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@z-cloud/virtual-mini": "workspace:^",
-    "@z-cloud/resizable-uni": "workspace:^"
+    "@z-cloud/resizable-uni": "^1.0.2"
   },
   "uni_modules": {
     "dependencies": [],

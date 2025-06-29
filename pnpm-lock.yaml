@@ -226,8 +226,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(vue@3.5.16(typescript@5.8.3))
       '@z-cloud/virtual-mini':
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: workspace:^
+        version: link:../mini
       vue:
         specifier: '>=3.2.47'
         version: 3.5.16(typescript@5.8.3)
@@ -1970,12 +1970,6 @@ packages:
     engines: {HBuilderX: ^3.8.7}
     peerDependencies:
       vue: '>=3.2.47'
-
-  '@z-cloud/virtual-mini@1.0.5':
-    resolution: {integrity: sha512-F6UVryf+7BzEnvzK5ogqyqwn8g6IFcp11M8MwYaMZgkCYzk3bLkdMlAMKzHuo86HBnJwEqdi1lpK4kGi5JpxSA==}
-
-  '@z-cloud/virtual-vanilla@1.0.3':
-    resolution: {integrity: sha512-/Bv9eYIZa/7H+jGM+kiWoffZOo6496y2d+9yjfEl0aAIowb91aTzGbfsbzVxH2YeZ2oTy4mw+vo0Ua5X2158rQ==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -6667,12 +6661,6 @@ snapshots:
   '@z-cloud/resizable-uni@1.0.2(vue@3.5.16(typescript@5.8.3))':
     dependencies:
       vue: 3.5.16(typescript@5.8.3)
-
-  '@z-cloud/virtual-mini@1.0.5':
-    dependencies:
-      '@z-cloud/virtual-vanilla': 1.0.3
-
-  '@z-cloud/virtual-vanilla@1.0.3': {}
 
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
