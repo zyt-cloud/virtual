@@ -1,5 +1,13 @@
 # @z-cloud/virtual-mini
 
+## 1.0.4
+
+### Patch Changes
+
+- 优化动态尺寸
+- Updated dependencies
+  - @z-cloud/virtual-vanilla@1.0.2
+
 ## 1.0.3
 
 ### Patch Changes

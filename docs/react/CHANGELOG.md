@@ -1,5 +1,13 @@
 # @z-cloud/virtual-react-docs
 
+## 1.0.2
+
+### Patch Changes
+
+- 优化动态尺寸
+- Updated dependencies
+  - @z-cloud/virtual-react@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

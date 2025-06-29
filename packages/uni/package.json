@@ -2,7 +2,7 @@
   "id": "zcloud-virtual",
   "name": "@z-cloud/virtual-uni",
   "displayName": "zcloud-virtual-list 虚拟列表、虚拟瀑布流、虚拟grid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "一个基于Vue3 + TS开发的虚拟列表，支持瀑布流、grid的组件。",
   "keywords": [
@@ -47,7 +47,7 @@
     "npmurl": ""
   },
   "dependencies": {
-    "@z-cloud/virtual-mini": "^1.0.3",
+    "@z-cloud/virtual-mini": "^1.0.4",
     "@z-cloud/resizable-uni": "^1.0.2"
   },
   "uni_modules": {
