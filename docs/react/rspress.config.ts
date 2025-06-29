@@ -1,21 +1,17 @@
-import * as path from 'node:path';
-import { defineConfig } from 'rspress/config';
-import { pluginPreview } from '@rspress/plugin-preview';
+import * as path from 'node:path'
+import { defineConfig } from 'rspress/config'
+import { pluginPreview } from '@rspress/plugin-preview'
 
 const alias = ['react', 'browser', 'vanilla'].reduce((prev, name) => {
-  prev[`@z-cloud/virtual-${name}`] = path.join(
-    __dirname,
-    '../../',
-    `packages/${name}/src`,
-  );
-  return prev;
-}, {});
+  prev[`@z-cloud/virtual-${name}`] = path.join(__dirname, '../../', `packages/${name}/src`)
+  return prev
+}, {})
 
 export default defineConfig({
   plugins: [pluginPreview()],
   root: path.join(__dirname, 'docs'),
-  description:
-    '基于浏览器的虚拟列表实现, React virtual, VirtualList, virtual list',
+  outDir: '../dist',
+  description: '基于浏览器的虚拟列表实现, React virtual, VirtualList, virtual list',
   title: '两颗樱桃',
   icon: '/favicon.png',
   logo: '/icon.png',
@@ -40,4 +36,4 @@ export default defineConfig({
       },
     ],
   },
-});
+})
