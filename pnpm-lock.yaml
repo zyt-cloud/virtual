@@ -226,8 +226,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(vue@3.5.16(typescript@5.8.3))
       '@z-cloud/virtual-mini':
-        specifier: ^1.0.1
-        version: 1.0.2
+        specifier: ^1.0.4
+        version: 1.0.4
       vue:
         specifier: '>=3.2.47'
         version: 3.5.16(typescript@5.8.3)
@@ -1971,11 +1971,11 @@ packages:
     peerDependencies:
       vue: '>=3.2.47'
 
-  '@z-cloud/virtual-mini@1.0.2':
-    resolution: {integrity: sha512-gm/rw6d/ZqR6hjP1JRtsBILmCcsQo2/jmAIN1TaCsJF/hKVNom3zflv3h3bNks6XaG6OKc7kTi8mxg10tXxIKg==}
+  '@z-cloud/virtual-mini@1.0.4':
+    resolution: {integrity: sha512-zcu6kOwgBOiO2fLSJSxPCEaHNYmWhY3GRemQGpXuyJ4fOF6OwIbk0Ekyol6FWXHC2aFs9GcG7uZVt5s3VgWT7g==}
 
-  '@z-cloud/virtual-vanilla@1.0.0':
-    resolution: {integrity: sha512-5yaTKDzHP+j8j+a74E2iA520T18E8apz7DyavuCzPWaQDD6biu99ur1QX3Q4B8TGJQTi87/wcSPra93aN8cn0g==}
+  '@z-cloud/virtual-vanilla@1.0.2':
+    resolution: {integrity: sha512-RrMeYSU+wyKQ5aHXnjdMsGStWaPir9v/FaQ/xmprsPkUvzCcdxHEzn6+BMbQCduZ6z/sYPTi3FWXXYWDUYFU5w==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -6668,11 +6668,11 @@ snapshots:
     dependencies:
       vue: 3.5.16(typescript@5.8.3)
 
-  '@z-cloud/virtual-mini@1.0.2':
+  '@z-cloud/virtual-mini@1.0.4':
     dependencies:
-      '@z-cloud/virtual-vanilla': 1.0.0
+      '@z-cloud/virtual-vanilla': 1.0.2
 
-  '@z-cloud/virtual-vanilla@1.0.0': {}
+  '@z-cloud/virtual-vanilla@1.0.2': {}
 
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
