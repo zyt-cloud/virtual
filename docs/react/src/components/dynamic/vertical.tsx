@@ -1,21 +1,15 @@
-import { VirtualList, type VirtualizerInstance } from '@z-cloud/virtual-react';
-import { useRef } from 'react';
+import { VirtualList, type VirtualizerInstance } from '@z-cloud/virtual-react'
+import { useRef } from 'react'
 
-const dynamicSizes = new Array(10000)
-  .fill(true)
-  .map(() => Math.round(Math.random() * 80 + 30));
+const dynamicSizes = new Array(10000).fill(true).map(() => Math.round(Math.random() * 80 + 60))
 
 export default function DynamicSizeVirtualList() {
-  const instanceRef = useRef<VirtualizerInstance>(null);
+  const instanceRef = useRef<VirtualizerInstance>(null)
 
   return (
     <div>
       <div className="demo-btns">
-        <button
-          onClick={() =>
-            instanceRef.current?.scrollToIndex(3000, { align: 'center' })
-          }
-        >
+        <button onClick={() => instanceRef.current?.scrollToIndex(3000, { align: 'center' })}>
           scrollToIndex(3000) with align center
         </button>
         <button onClick={() => instanceRef.current?.scrollToOffset(4000)}>
@@ -28,9 +22,10 @@ export default function DynamicSizeVirtualList() {
         count={10000}
         dynamicSize
         overscan={5}
+        gap={10}
         size={60}
         onReady={(virtualizer) => {
-          instanceRef.current = virtualizer;
+          instanceRef.current = virtualizer
         }}
       >
         {({ index }) => (
@@ -43,5 +38,5 @@ export default function DynamicSizeVirtualList() {
         )}
       </VirtualList>
     </div>
-  );
+  )
 }

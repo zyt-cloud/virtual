@@ -22,12 +22,15 @@ export default function RowVirtualList() {
         itemClassName="demo-list-item"
         count={10000}
         overscan={5}
+        gap={10}
         size={(index) => (index % 2 === 0 ? 60 : 120)}
         onReady={(virtualizer) => {
           instanceRef.current = virtualizer
         }}
       >
-        {({ index }) => <div className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}>第 {index} 行</div>}
+        {({ index }) => (
+          <div className={index % 2 ? 'demo-list-odd' : 'demo-list-even'}>第 {index} 行</div>
+        )}
       </VirtualList>
     </div>
   )

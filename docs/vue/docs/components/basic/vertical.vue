@@ -12,13 +12,24 @@ const onReady = (virtualizer: VirtualizerInstance) => {
 <template>
   <div>
     <div className="demo-btns">
-      <button @click="instanceRef?.scrollToIndex(2000, { behavior: 'smooth' })">scrollToIndex(2000) with smooth</button>
+      <button @click="instanceRef?.scrollToIndex(2000, { behavior: 'smooth' })">
+        scrollToIndex(2000) with smooth
+      </button>
       <button @click="instanceRef?.scrollToIndex(3000, { align: 'center' })">
         scrollToIndex(3000) with align center
       </button>
-      <button @click="instanceRef?.scrollToOffset(4000, 'smooth')">scrollToOffset(4000) with smooth</button>
+      <button @click="instanceRef?.scrollToOffset(4000, 'smooth')">
+        scrollToOffset(4000) with smooth
+      </button>
     </div>
-    <VirtualList itemClassName="demo-list-item" style="height: 400px" :count="10000" :size="60" @ready="onReady">
+    <VirtualList
+      itemClassName="demo-list-item"
+      :gap="10"
+      style="height: 400px"
+      :count="10000"
+      :size="60"
+      @ready="onReady"
+    >
       <template #default="{ index }">
         <div :class="index % 2 ? 'demo-list-odd' : 'demo-list-even'">第 {{ index }} 行</div>
       </template>
