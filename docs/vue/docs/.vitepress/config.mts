@@ -12,7 +12,7 @@ export default defineConfig({
   title: '两颗樱桃',
   description: '基于浏览器的虚拟列表实现, Vue virtual, VirtualList, virtual list',
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
-  base: '/vue/',
+  base: '/virtual/vue/',
   vite: {
     resolve: {
       alias: {

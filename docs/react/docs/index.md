@@ -10,10 +10,13 @@ hero:
       text: 开始
       link: /guide/
     - theme: alt
+      text: Vue 文档
+      link: https://zyt-cloud.github.io/virtual/vue/
+    - theme: alt
       text: GitHub
       link: https://github.com/zyt-cloud/virtual
   image:
-    src: /logo.png
+    src: https://zyt-cloud.github.io/virtual/logo.png
     alt: Logo
 features:
   - title: 多平台包

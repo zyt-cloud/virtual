@@ -10,11 +10,19 @@ const alias = ['react', 'browser', 'vanilla'].reduce((prev, name) => {
 export default defineConfig({
   plugins: [pluginPreview()],
   root: path.join(__dirname, 'docs'),
+  base: '/virtual/',
   outDir: '../dist',
   description: '基于浏览器的虚拟列表实现, React virtual, VirtualList, virtual list',
   title: '两颗樱桃',
-  icon: '/favicon.png',
-  logo: '/icon.png',
+  // https://zyt-cloud.github.io/virtual/favicon.png
+  icon:
+    process.env.NODE_ENV === 'development'
+      ? '/favicon.png'
+      : 'https://zyt-cloud.github.io/virtual/favicon.png',
+  logo:
+    process.env.NODE_ENV === 'development'
+      ? '/icon.png'
+      : 'https://zyt-cloud.github.io/virtual/icon.png',
   logoText: '两颗樱桃',
   globalStyles: path.join(__dirname, 'src/styles/index.css'),
   builderConfig: {

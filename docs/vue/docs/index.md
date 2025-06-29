@@ -14,6 +14,9 @@ hero:
       text: 开始
       link: /guide
     - theme: alt
+      text: React 文档
+      link: https://zyt-cloud.github.io/virtual/
+    - theme: alt
       text: GitHub
       link: https://github.com/zyt-cloud/virtual
 
