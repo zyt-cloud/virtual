@@ -1,5 +1,11 @@
 # @z-cloud/virtual-mini
 
+## 1.0.6
+
+### Patch Changes
+
+- mini dynamic size support scrollToIndex
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @z-cloud/virtual-taro
 
+## 1.0.4
+
+### Patch Changes
+
+- mini dyanmic size support scrollToIndex/Offset
+
 ## 1.0.3
 
 ### Patch Changes

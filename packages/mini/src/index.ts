@@ -1,7 +1,6 @@
 import {
   BasicVirtualizer,
   debounce,
-  type Key,
   type Rect,
   type ScrollToOptions,
   type VirtualItem,
