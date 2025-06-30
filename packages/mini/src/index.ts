@@ -12,8 +12,6 @@ export type { VirtualizerOptions, VirtualItem }
 
 export class MiniVirtualizer extends BasicVirtualizer {
   private scrollToIndexTimeoutId: any | null = null
-
-  private dynamicElementsCache = new Map<Key, any>()
   constructor(options: VirtualizerOptions) {
     super()
     this.setOptions(options)
@@ -111,7 +109,7 @@ export class MiniVirtualizer extends BasicVirtualizer {
       this.scrollToIndexTimeoutId = setTimeout(() => {
         this.scrollToIndexTimeoutId = null
 
-        if (this.dynamicElementsCache.has(this.options.getItemKey(safeIndex))) {
+        if (this.dynamicSizeCache.has(safeIndex)) {
           const calcOffset = this.getOffsetForIndex(safeIndex, align)
           if (!calcOffset) {
             return
