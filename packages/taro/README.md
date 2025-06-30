@@ -1,1 +1,1 @@
-# virtual-list for React
+# virtual-list for Taro React
