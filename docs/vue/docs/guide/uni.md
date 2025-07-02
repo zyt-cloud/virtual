@@ -8,6 +8,10 @@ uni-app 你可以直接使用组件，与web Vue用法一致
 
 针对这种情况，你可以参考[这个仓库](https://github.com/zyt-cloud/virtual-list-uni-demo)的 uni-app 示例，直接复制使用。
 
+## uni-app 插件市场
+
+提供uni-app插件 [插件地址](https://ext.dcloud.net.cn/plugin?id=24074)
+
 ## 注意事项
 
 跟随页面滚动的虚拟列表需要在页面注册 `onPageScroll` 事件，具体如下

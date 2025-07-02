@@ -1,6 +1,8 @@
 # uni-app 虚拟组件 zcloud-virtual-list
 
-> 还提供其他平台包: web: @z-cloud/virtual-react，@z-cloud/virtual-vue。 Taro: @z-cloud/virtual-taro。文档建设中...
+> 还提供其他平台包: web: @z-cloud/virtual-react，@z-cloud/virtual-vue。 Taro: @z-cloud/virtual-taro。
+
+[参考文档](https://zyt-cloud.github.io/virtual/index.html)
 
 该组件包含常规虚拟列表、瀑布流、网格 grid
 
@@ -9,8 +11,6 @@
 > 自助版虚拟列表：直接复制下面仓库里对应的页面使用。此时提供最优的虚拟列表性能。
 
 [示例代码](https://github.com/zyt-cloud/virtual-list-uni-demo) 请查看 pages 对应的页面
-
-[参考文档](https://zyt-cloud.github.io/virtual/index.html)
 
 ## 使用注意事项
 
