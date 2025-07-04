@@ -50,7 +50,7 @@
     "@z-cloud/virtual-browser": "workspace:^"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitejs/plugin-vue": "catalog:",
     "vue-tsc": "^2.2.8",
     "vue": "catalog:"
   },

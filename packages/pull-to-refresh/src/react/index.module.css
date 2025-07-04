@@ -1,0 +1,56 @@
+.hasPullToRefresh {
+  overscroll-behavior: none;
+}
+
+.refreshWraper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.15s linear, opacity 0.2s linear;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --delay: 0;
+}
+
+.refreshWraper.pageScroll {
+  position: fixed;
+}
+
+.indicator {
+  width: 60%;
+  height: 60%;
+  color: #6a7282;
+}
+
+.circle {
+  stroke-dasharray: 63;
+  stroke-dashoffset: 63;
+  transform-origin: center;
+}
+
+.loading,
+.finished {
+  animation: pull-refresh-loading 1s ease-out infinite;
+}
+
+.pulling {
+  animation: pull-refresh-loading 1s ease-out var(--delay) forwards paused;
+}
+
+@keyframes pull-refresh-loading {
+  0% {
+    stroke-dashoffset: 60;
+    transform: rotate(-45deg);
+  }
+  100% {
+    stroke-dashoffset: 6;
+    transform: rotate(315deg);
+  }
+}

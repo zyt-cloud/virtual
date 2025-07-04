@@ -1,16 +1,16 @@
 {
-  "name": "@z-cloud/virtual-taro",
-  "version": "1.0.4",
-  "description": "一个基于React + TS开发的虚拟列表，支持瀑布流、grid的组件。",
+  "name": "@z-cloud/pull-to-refresh",
+  "version": "1.0.0",
+  "description": "基于React/Vue + TS开发的下拉刷新以及加载更多组件。",
   "type": "module",
   "keywords": [
-    "react-virtual for taro",
-    "virtual",
-    "virtual-list",
-    "virtual-waterfall",
-    "react 虚拟列表",
-    "react 瀑布流",
-    "taro virtual-grid"
+    "pull-to-refresh for React",
+    "pull-to-refresh for Vue",
+    "pull-to-refresh",
+    "load more",
+    "下拉刷新",
+    "加载更多",
+    "pull-to-refresh for uni and Taro"
   ],
   "homepage": "https://zyt-cloud.github.io/virtual/index.html",
   "repository": {
@@ -35,6 +35,16 @@
         "default": "./dist/cjs/index.cjs"
       }
     },
+    "./react": {
+      "import": {
+        "types": "./dist/react/index.d.ts",
+        "default": "./dist/esm/react/index.js"
+      },
+      "require": {
+        "types": "./dist/react/index.d.ts",
+        "default": "./dist/cjs/react/index.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "sideEffects": false,
@@ -46,12 +56,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@z-cloud/virtual-mini": "workspace:^"
+    "@z-cloud/virtual-vanilla": "workspace:^"
   },
   "devDependencies": {
     "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
     "@tarojs/components": "catalog:",
     "@tarojs/taro": "catalog:",
     "react": "catalog:",
@@ -59,8 +69,22 @@
   },
   "peerDependencies": {
     "react": ">=17.0.0",
-    "react-dom": ">=17.0.0",
+    "vue": ">=3.0.0",
     "@tarojs/components": "*",
     "@tarojs/taro": "*"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    },
+    "@tarojs/components": {
+      "optional": true
+    },
+    "@tarojs/taro": {
+      "optional": true
+    }
   }
 }
