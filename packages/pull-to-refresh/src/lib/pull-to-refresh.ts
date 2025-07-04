@@ -36,7 +36,7 @@ export class PullToRefresh {
   }
 
   public onScroll(scrollTop: number) {
-    // or scrollTop === 0
+    // or scrollTop === 0 小程序专用
     this.ready = scrollTop < 1
 
     if (!this.ready && this.status !== 'initial') {
@@ -70,7 +70,7 @@ export class PullToRefresh {
 
     this.pullDistance = Math.max(
       pullDistance > maxPullDistance ? this.pullDistance + 0.2 : pullDistance,
-      0
+      0,
     )
 
     this.notify()

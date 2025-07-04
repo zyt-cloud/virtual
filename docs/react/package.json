@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@z-cloud/virtual-react": "workspace:^",
+    "@z-cloud/pull-to-refresh": "workspace:^",
     "rspress": "^1.40.2"
   },
   "devDependencies": {

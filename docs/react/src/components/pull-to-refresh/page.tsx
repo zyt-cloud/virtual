@@ -7,7 +7,7 @@ export default function PagePullToRefresh() {
       <br />
       <div>请注意顶部遮挡</div>
       <br />
-      <div>请将页面滚动到最顶部，PC端按住鼠标乡下拉查看效果</div>
+      <div>请将页面滚动到最顶部，PC端按住鼠标向下拉查看效果</div>
       <PullToRefresh
         style={{ top: 72 }}
         onRefresh={() => new Promise((resolve) => setTimeout(() => resolve(true), 3000))}

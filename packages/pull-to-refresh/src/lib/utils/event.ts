@@ -37,6 +37,7 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
   }
 
   public move(e: TEvent) {
+    // pointerEvent 不满足效果
     if ((hasTouch && !this.isTouchEvent(e as Event)) || !this.pressed) {
       return
     }

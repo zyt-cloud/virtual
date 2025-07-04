@@ -23,7 +23,7 @@ export default function LocalPullToRefresh() {
     >
       <div>当前属于局部刷新，兼容PC、Mobile</div>
       <br />
-      <div>请将当前滚动元素滚动到最顶部，PC端按住鼠标乡下拉查看效果</div>
+      <div>请将当前滚动元素滚动到最顶部，PC端按住鼠标向下拉查看效果</div>
       <PullToRefresh
         event={event}
         onRefresh={() => new Promise((resolve) => setTimeout(() => resolve(true), 3000))}

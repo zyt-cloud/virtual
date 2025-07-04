@@ -128,6 +128,9 @@ importers:
 
   docs/react:
     dependencies:
+      '@z-cloud/pull-to-refresh':
+        specifier: workspace:^
+        version: link:../../packages/pull-to-refresh
       '@z-cloud/virtual-react':
         specifier: workspace:^
         version: link:../../packages/react
@@ -206,6 +209,9 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.1.0(react@19.1.0)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.5.2
+        version: 3.5.2(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2)(sass-embedded@1.89.0)(terser@5.43.0))
 
   packages/react:
     dependencies:
@@ -4545,6 +4551,11 @@ packages:
 
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
+
+  vite-plugin-css-injected-by-js@3.5.2:
+    resolution: {integrity: sha512-2MpU/Y+SCZyWUB6ua3HbJCrgnF0KACAsmzOQt1UvRVJCGF6S8xdA3ZUhWcWdM9ivG4I5az8PnQmwwrkC2CAQrQ==}
+    peerDependencies:
+      vite: '>2.0.0-0'
 
   vite-plugin-externalize-deps@0.9.0:
     resolution: {integrity: sha512-wg3qb5gCy2d1KpPKyD9wkXMcYJ84yjgziHrStq9/8R7chhUC73mhQz+tVtvhFiICQHsBn1pnkY4IBbPqF9JHNw==}
@@ -9886,6 +9897,10 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
+
+  vite-plugin-css-injected-by-js@3.5.2(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2)(sass-embedded@1.89.0)(terser@5.43.0)):
+    dependencies:
+      vite: 6.3.5(@types/node@24.0.3)(jiti@2.4.2)(sass-embedded@1.89.0)(terser@5.43.0)
 
   vite-plugin-externalize-deps@0.9.0(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2)(sass-embedded@1.89.0)(terser@5.43.0)):
     dependencies:
