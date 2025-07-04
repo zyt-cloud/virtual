@@ -16,7 +16,7 @@ hero:
       text: GitHub
       link: https://github.com/zyt-cloud/virtual
   image:
-    src: https://zyt-cloud.github.io/virtual/logo.png
+    src: ./logo.png
     alt: Logo
 features:
   - title: 多平台包

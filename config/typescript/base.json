@@ -20,7 +20,9 @@
       "@z-cloud/virtual-vanilla": ["../../packages/vanilla/src"],
       "@z-cloud/virtual-browser": ["../../packages/browser/src"],
       "@z-cloud/virtual-vue": ["../../packages/vue/src"],
-      "@z-cloud/virtual-react": ["../../packages/react/src"]
+      "@z-cloud/virtual-react": ["../../packages/react/src"],
+      "@z-cloud/pull-to-refresh": ["../../packages/pull-to-refresh/src"],
+      "@z-cloud/pull-to-refresh/*": ["../../packages/pull-to-refresh/src/*"]
     }
   }
 }

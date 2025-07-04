@@ -20,7 +20,7 @@ export interface LikeEvent {
 
 export interface PullToRefreshOptions {
   /**
-   * 刷新阈值 打到该值松手即可刷新
+   * 刷新阈值 达到该值松手即可刷新
    * @default 50
    */
   refreshThreshold?: number

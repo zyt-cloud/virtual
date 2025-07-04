@@ -3,8 +3,8 @@ import type { PullToRefreshOptions } from '../../lib/typings'
 import { PullToRefresh } from '../../lib/pull-to-refresh'
 import { canUseDom } from '@z-cloud/virtual-vanilla'
 import type { PullToRefreshProps } from '../typings'
-import { EventManager } from '../../lib/utils/event'
 import { hasTouch } from '../../lib/utils'
+import { useEventBind } from './use-event-bind'
 
 export const useIsomorphicLayoutEffect = canUseDom ? useLayoutEffect : useEffect
 
@@ -22,18 +22,14 @@ export function usePullToRefresh({ onChange, event, ...restOptions }: PullToRefr
       onChange?.()
     },
   }
-  const [eventManager] = useState(
-    () =>
-      (event as unknown as EventManager<TouchEvent | PointerEvent>) ??
-      new EventManager<TouchEvent | PointerEvent>()
-  )
+  const eventManager = useEventBind(event)
   const [pullToRefresh] = useState(() => new PullToRefresh(options))
 
   pullToRefresh.setOptions(options)
   eventManager.setRefreshInstance(pullToRefresh)
 
   useIsomorphicLayoutEffect(() => {
-    EventManager.canMove = (e: Event) => {
+    eventManager.canMove = (e: Event) => {
       if (e.currentTarget instanceof HTMLElement) {
         return e.currentTarget.scrollTop < 1
       }
@@ -42,25 +38,25 @@ export function usePullToRefresh({ onChange, event, ...restOptions }: PullToRefr
 
     if (!event) {
       if (hasTouch) {
-        window.addEventListener('touchstart', eventManager.start, eventOptions)
-        window.addEventListener('touchmove', eventManager.move, eventOptions)
+        window.addEventListener('touchstart', eventManager.start as any, eventOptions)
+        window.addEventListener('touchmove', eventManager.move as any, eventOptions)
         window.addEventListener('touchend', eventManager.end, eventOptions)
       } else {
-        document.body.addEventListener('pointerdown', eventManager.start, eventOptions)
-        document.body.addEventListener('pointermove', eventManager.move, eventOptions)
-        document.body.addEventListener('pointerup', eventManager.end, eventOptions)
+        window.addEventListener('pointerdown', eventManager.start as any, eventOptions)
+        window.addEventListener('pointermove', eventManager.move as any)
+        window.addEventListener('pointerup', eventManager.end, eventOptions)
       }
     }
 
     return () => {
       if (!event) {
         if (hasTouch) {
-          window.removeEventListener('touchstart', eventManager.start)
-          window.removeEventListener('touchmove', eventManager.move)
+          window.removeEventListener('touchstart', eventManager.start as any)
+          window.removeEventListener('touchmove', eventManager.move as any)
           window.removeEventListener('touchend', eventManager.end)
         } else {
-          window.removeEventListener('pointerdown', eventManager.start)
-          window.removeEventListener('pointermove', eventManager.move)
+          window.removeEventListener('pointerdown', eventManager.start as any)
+          window.removeEventListener('pointermove', eventManager.move as any)
           window.removeEventListener('pointerup', eventManager.end)
         }
       }

@@ -2,10 +2,19 @@ import * as path from 'node:path'
 import { defineConfig } from 'rspress/config'
 import { pluginPreview } from '@rspress/plugin-preview'
 
-const alias = ['react', 'browser', 'vanilla'].reduce((prev, name) => {
-  prev[`@z-cloud/virtual-${name}`] = path.join(__dirname, '../../', `packages/${name}/src`)
-  return prev
-}, {})
+const alias = ['react', 'browser', 'vanilla'].reduce(
+  (prev, name) => {
+    prev[`@z-cloud/virtual-${name}`] = path.join(__dirname, '../../', `packages/${name}/src`)
+    return prev
+  },
+  {
+    '@z-cloud/pull-to-refresh/react': path.join(
+      __dirname,
+      '../../',
+      `packages/pull-to-refresh/src/react`,
+    ),
+  },
+)
 
 export default defineConfig({
   plugins: [pluginPreview()],

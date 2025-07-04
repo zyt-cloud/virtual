@@ -21,6 +21,12 @@ export function PullToRefresh({ style, className, ...restProps }: PullToRefreshP
     return () => document.body.classList.remove(classes.hasPullToRefresh!)
   }, [])
 
+  useIsomorphicLayoutEffect(() => {
+    document.body.classList.toggle(classes.pullToRefreshPulling!, instance.status === 'pulling')
+
+    return () => document.body.classList.remove(classes.pullToRefreshPulling!)
+  }, [instance.status])
+
   return (
     <div
       style={

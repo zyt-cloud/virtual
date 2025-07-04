@@ -4,6 +4,7 @@
   "taro",
   "config",
   "instance",
+  "pull-to-refresh",
   {
     "type": "dir",
     "name": "demo",

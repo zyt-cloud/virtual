@@ -1,0 +1,52 @@
+# PullToRefresh组件
+
+下拉刷新组件，支持页面和局部下拉刷新
+
+## 页面刷新示例
+
+<code src="@/components/pull-to-refresh/page.tsx" />
+
+## 局部刷新示例
+
+使用 `useEventBind` 统一和小程序的用法，也把事件绑定交给框架处理，滚动元素需要使用 相对定位或其他定位 刷新元素相对于当前元素定位
+
+<code src="@/components/pull-to-refresh/local.tsx" />
+
+## 配置项
+
+```ts
+{
+  /**
+   * 刷新阈值 达到该值松手即可刷新
+   * @default 50
+   */
+  refreshThreshold?: number
+  /**
+   * 最大下拉距离
+   * @default 100
+   */
+  maxPullDistance?: number
+  /**
+   * 下拉角度,角度大于该值则不触发下拉
+   * @default 30
+   */
+  pullAngle?: number
+  /**
+   * 加载器大小
+   * @default 40
+   */
+  size?: number
+  /**
+   * 刷新中回调 返回Promise true则关闭刷新
+   * @returns
+   */
+  onRefresh: () => Promise<boolean>
+  /**
+   * 局部滚动与滚动元素事件绑定
+   */
+  event?: EventManager<React.TouchEvent | React.PointerEvent>
+  onChange?: () => void
+  className?: string
+  style?: React.CSSProperties
+}
+```
