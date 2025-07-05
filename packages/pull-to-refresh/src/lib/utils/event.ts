@@ -44,6 +44,9 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
 
     const data = this.formatEvent(e as Event)
     if (this.canMove(e as Event)) {
+      if ((e as Event).currentTarget instanceof HTMLElement) {
+        ;(e as Event).preventDefault()
+      }
       this.refreshInstance?.onMove(data as unknown as LikeEvent)
     }
   }

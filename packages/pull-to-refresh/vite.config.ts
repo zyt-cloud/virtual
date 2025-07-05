@@ -4,7 +4,16 @@ import react from '@vitejs/plugin-react'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
 const config = defineConfig({
-  plugins: [react(), cssInjectedByJsPlugin()],
+  plugins: [
+    react(),
+    cssInjectedByJsPlugin({
+      relativeCSSInjection: true,
+      jsAssetsFilterFunction: function customJsAssetsfilterFunction(outputChunk) {
+        console.log(outputChunk)
+        return true
+      },
+    }),
+  ],
   css: {
     modules: {
       scopeBehaviour: 'local',

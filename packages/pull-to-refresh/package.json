@@ -12,6 +12,9 @@
     "加载更多",
     "pull-to-refresh for uni and Taro"
   ],
+  "sideEffects": [
+    "*.css"
+  ],
   "homepage": "https://zyt-cloud.github.io/virtual/index.html",
   "repository": {
     "type": "git",

@@ -4,7 +4,9 @@ import classes from './index.module.css'
 import { classnames } from '../lib/utils'
 
 export function PullToRefresh({ style, className, ...restProps }: PullToRefreshProps) {
+  const pageScroll = !restProps.getScrollElement
   const instance = usePullToRefresh(restProps)
+
   const arcProgress = Math.min(
     Math.max(0, instance.pullDistance) / instance.options.maxPullDistance,
     1,
@@ -14,7 +16,7 @@ export function PullToRefresh({ style, className, ...restProps }: PullToRefreshP
     : `${Math.min(0.6 + arcProgress, 1)}`
 
   useIsomorphicLayoutEffect(() => {
-    if (!restProps.event) {
+    if (pageScroll) {
       document.body.classList.add(classes.hasPullToRefresh!)
     }
 
@@ -45,7 +47,7 @@ export function PullToRefresh({ style, className, ...restProps }: PullToRefreshP
         }
       }}
       className={classnames(className, classes.refreshWraper, {
-        [classes.pageScroll as string]: !restProps.event,
+        [classes.pageScroll as string]: pageScroll,
       })}
     >
       <svg
