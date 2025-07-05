@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch, useCssModule } from 'vue'
 import { usePullToRefresh } from './hooks/use-pull-to-refresh'
 import { PullToRefreshProps } from './typings'
 import { useEventBind } from './hooks/use-event-bind'
@@ -7,6 +7,8 @@ import { useEventBind } from './hooks/use-event-bind'
 const props = withDefaults(defineProps<PullToRefreshProps>(), {
   local: false,
 })
+
+const classes = useCssModule('classes')
 
 defineEmits(['refresh'])
 
@@ -33,30 +35,29 @@ const onTransitionEnd = () => {
 
 onMounted(() => {
   if (!props.local) {
-    document.body.classList.add('hasPullToRefresh')
+    document.body.classList.add(classes.hasPullToRefresh!)
   }
 })
 
 watch(
   () => instance.value.status,
   (status) => {
-    document.body.classList.toggle('pullToRefreshPulling', status === 'pulling')
+    document.body.classList.toggle(classes.pullToRefreshPulling!, status === 'pulling')
   },
 )
 
 onUnmounted(() => {
   if (!props.local) {
-    document.body.classList.remove('hasPullToRefresh')
+    document.body.classList.remove(classes.hasPullToRefresh!)
   }
-  document.body.classList.remove('pullToRefreshPulling')
+  document.body.classList.remove(classes.pullToRefreshPulling!)
 })
 </script>
 
 <template>
   <div
     ref="refreshDomRef"
-    class="refreshWraper"
-    :class="{ pageScroll: !local }"
+    :class="[classes.refreshWraper, { [classes.pageScroll ?? '']: !local }]"
     :style="
       {
         '--delay': `${instance.status === 'pulling' ? -arcProgress : 0}s`,
@@ -69,7 +70,7 @@ onUnmounted(() => {
     @transitionend="onTransitionEnd"
   >
     <svg
-      class="indicator"
+      :class="classes.indicator"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -80,8 +81,7 @@ onUnmounted(() => {
         cy="12"
         r="10"
         fill="none"
-        class="circle"
-        :class="instance.status"
+        :class="[classes.circle, classes[instance.status]]"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
@@ -90,6 +90,6 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style>
+<style module="classes">
 @import url(../styles/index.module.css);
 </style>
