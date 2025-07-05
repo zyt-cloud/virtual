@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { usePullToRefresh } from './hooks/use-pull-to-refresh'
 import { PullToRefreshProps } from './typings'
 import { useEventBind } from './hooks/use-event-bind'
@@ -8,18 +8,28 @@ const props = withDefaults(defineProps<PullToRefreshProps>(), {
   local: false,
 })
 
+defineEmits(['refresh'])
+
 const refreshDomRef = ref<HTMLElement | null>(null)
 
 const instance = usePullToRefresh(props)
 useEventBind(instance.value, props.local ? refreshDomRef : void 0)
 
-const arcProgress = Math.min(
-  Math.max(0, instance.value.pullDistance) / instance.value.options.maxPullDistance,
-  1,
+const arcProgress = computed(() =>
+  Math.min(Math.max(0, instance.value.pullDistance) / instance.value.options.maxPullDistance, 1),
 )
-const opacity = ['finished', 'initial'].includes(instance.value.status)
-  ? '0'
-  : `${Math.min(0.6 + arcProgress, 1)}`
+
+const opacity = computed(() => {
+  return ['finished', 'initial'].includes(instance.value.status)
+    ? '0'
+    : `${Math.min(0.6 + arcProgress.value, 1)}`
+})
+
+const onTransitionEnd = () => {
+  if (instance.value.status === 'finished') {
+    instance.value.reset()
+  }
+}
 
 onMounted(() => {
   if (!props.local) {
@@ -56,6 +66,7 @@ onUnmounted(() => {
         opacity,
       } as React.CSSProperties & Record<string, string>
     "
+    @transitionend="onTransitionEnd"
   >
     <svg
       class="indicator"
@@ -79,6 +90,6 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 @import url(../styles/index.module.css);
 </style>

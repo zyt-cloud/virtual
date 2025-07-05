@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@z-cloud/virtual-vue": "workspace:^",
+    "@z-cloud/pull-to-refresh": "workspace:^",
     "vitepress": "^1.6.3",
     "vue": "catalog:"
   },

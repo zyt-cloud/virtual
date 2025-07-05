@@ -3,7 +3,7 @@ import type { PullToRefreshProps } from '../typings'
 import { unref, watch, shallowRef, type MaybeRef, triggerRef } from 'vue'
 
 export function usePullToRefresh(props: MaybeRef<PullToRefreshProps>) {
-  const instance = shallowRef(new PullToRefresh(unref(props)))
+  const instance = shallowRef(new PullToRefresh({ ...unref(props) }))
 
   watch(
     () => unref(props),

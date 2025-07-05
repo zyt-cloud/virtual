@@ -153,6 +153,9 @@ importers:
 
   docs/vue:
     dependencies:
+      '@z-cloud/pull-to-refresh':
+        specifier: workspace:^
+        version: link:../../packages/pull-to-refresh
       '@z-cloud/virtual-vue':
         specifier: workspace:^
         version: link:../../packages/vue

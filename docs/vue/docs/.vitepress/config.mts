@@ -2,10 +2,19 @@ import path from 'node:path'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 
-const alias = ['vue', 'browser', 'vanilla'].reduce((prev, name) => {
-  prev[`@z-cloud/virtual-${name}`] = path.join(process.cwd(), '../../', `packages/${name}/src`)
-  return prev
-}, {})
+const alias = ['vue', 'browser', 'vanilla'].reduce(
+  (prev, name) => {
+    prev[`@z-cloud/virtual-${name}`] = path.join(process.cwd(), '../../', `packages/${name}/src`)
+    return prev
+  },
+  {
+    '@z-cloud/pull-to-refresh/vue': path.join(
+      process.cwd(),
+      '../../',
+      `packages/pull-to-refresh/src/vue`,
+    ),
+  },
+)
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -75,6 +84,7 @@ export default defineConfig({
             { text: 'uni-app', link: '/guide/uni' },
             { text: '配置项', link: '/guide/config' },
             { text: '虚拟器实例', link: '/guide/instance' },
+            { text: 'PullToRefresh组件', link: '/guide/pull-to-refresh' },
             {
               text: '示例',
               items: [

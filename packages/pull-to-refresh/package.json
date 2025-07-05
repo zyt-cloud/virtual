@@ -48,6 +48,16 @@
         "default": "./dist/cjs/react/index.cjs"
       }
     },
+    "./vue": {
+      "import": {
+        "types": "./dist/vue/index.d.ts",
+        "default": "./dist/esm/vue/index.js"
+      },
+      "require": {
+        "types": "./dist/vue/index.d.ts",
+        "default": "./dist/cjs/vue/index.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "files": [
