@@ -46,16 +46,16 @@
 
 .loading,
 .finished {
-  animation: pull-refresh-loading 1s ease-out infinite;
+  animation: pull-refresh-loading 1s ease infinite;
 }
 
 .pulling {
-  animation: pull-refresh-loading 1s ease-out var(--delay) forwards paused;
+  animation: pull-refresh-loading 1s linear var(--delay) forwards paused;
 }
 
 @keyframes pull-refresh-loading {
   0% {
-    stroke-dashoffset: 60;
+    stroke-dashoffset: 63;
     transform: rotate(-45deg);
   }
   100% {

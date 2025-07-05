@@ -1,3 +1,5 @@
+import type { PullToRefresh } from './pull-to-refresh'
+
 /**
  * pulling 向下拉 loading 加载中 finished 加载完成 initial 初始状态
  */
@@ -44,5 +46,5 @@ export interface PullToRefreshOptions {
    * @returns
    */
   onRefresh: () => Promise<boolean>
-  onChange?: () => void
+  onChange?: (instance: PullToRefresh) => void
 }

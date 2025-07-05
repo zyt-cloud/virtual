@@ -116,6 +116,6 @@ export class PullToRefresh {
   }
 
   public notify() {
-    this.options.onChange()
+    this.options.onChange(this)
   }
 }

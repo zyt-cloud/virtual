@@ -11,16 +11,11 @@ const config = defineConfig({
     cssInjectedByJsPlugin({
       relativeCSSInjection: true,
       jsAssetsFilterFunction: function customJsAssetsfilterFunction(outputChunk) {
-        console.log(outputChunk)
+        // console.log(outputChunk)
         return true
       },
     }),
   ],
-  css: {
-    modules: {
-      scopeBehaviour: 'local',
-    },
-  },
 })
 
 export default mergeConfig(

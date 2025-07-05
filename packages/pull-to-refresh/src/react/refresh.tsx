@@ -1,6 +1,6 @@
 import { useIsomorphicLayoutEffect, usePullToRefresh } from './hooks/use-pull-to-refresh'
 import type { PullToRefreshProps } from './typings'
-import classes from './index.module.css'
+import classes from '../styles/index.module.css'
 import { classnames } from '../lib/utils'
 import { useRef } from 'react'
 import { useEventBind } from './hooks/use-event-bind'

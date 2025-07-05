@@ -11,9 +11,9 @@ export function usePullToRefresh({ onChange, ...restOptions }: PullToRefreshProp
 
   const options: PullToRefreshOptions = {
     ...restOptions,
-    onChange: () => {
+    onChange: (instance) => {
       rerender()
-      onChange?.()
+      onChange?.(instance)
     },
   }
 
