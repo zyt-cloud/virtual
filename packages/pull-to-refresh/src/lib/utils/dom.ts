@@ -1,7 +1,7 @@
 import { hasTouch } from '.'
 import type { EventManager } from './event'
 
-export function bindEvent(target: HTMLElement | Window, eventManager: EventManager<any>) {
+export function bindEvent(target: Element | Window, eventManager: EventManager<any>) {
   const controller = new AbortController()
 
   const eventOptions = {
@@ -10,18 +10,11 @@ export function bindEvent(target: HTMLElement | Window, eventManager: EventManag
   }
   const isElement = target instanceof HTMLElement
 
-  if (isElement) {
-    const position = getComputedStyle(target).getPropertyValue('position')
-    if (!['fixed', 'absolute', 'relative'].includes(position)) {
-      target.style.position = 'relative'
-    }
-  }
-
   eventManager.canMove = () => {
     if (isElement) {
-      return target.scrollTop < 1
+      return target.scrollTop === 0
     }
-    return (window.pageYOffset ?? window.scrollY) < 1
+    return (window.pageYOffset ?? window.scrollY) === 0
   }
 
   if (hasTouch) {

@@ -11,6 +11,7 @@ type LikeScrollEvent = {
 export class EventManager<TEvent = TouchEvent | PointerEvent> {
   private refreshInstance?: PullToRefresh
   private pressed = false
+  private startY = 0
 
   private isTouchEvent(e: Event): e is TouchEvent {
     return e.type.startsWith('touch')
@@ -33,6 +34,7 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
     }
     this.pressed = true
     const data = this.formatEvent(e as Event)
+    this.startY = data.clientY
     this.refreshInstance?.onStart(data as LikeEvent)
   }
 
@@ -44,7 +46,7 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
 
     const data = this.formatEvent(e as Event)
     if (this.canMove(e as Event)) {
-      if ((e as Event).currentTarget instanceof HTMLElement) {
+      if ((e as Event).currentTarget instanceof HTMLElement && this.startY < data.clientY) {
         ;(e as Event).preventDefault()
       }
       this.refreshInstance?.onMove(data as unknown as LikeEvent)

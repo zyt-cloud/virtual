@@ -1,7 +1,11 @@
 import type { PullToRefreshOptions } from '../lib/typings'
 
 export interface PullToRefreshProps extends PullToRefreshOptions {
-  getScrollElement?: () => HTMLElement | null | undefined
+  /**
+   * 局部滚动
+   * @default false
+   */
+  local?: boolean
   className?: string
   style?: React.CSSProperties
 }

@@ -8,6 +8,8 @@
 
 ## 局部刷新示例
 
+刷新元素使用绝对定位，请确保滚动元素使用定位
+
 <code src="@/components/pull-to-refresh/local.tsx" />
 
 ## 配置项
@@ -40,9 +42,10 @@
    */
   onRefresh: () => Promise<boolean>
   /**
-   * 局部滚动与滚动元素事件绑定
+   * 是否局部滚动需
+   * @default false
    */
-  event?: EventManager<React.TouchEvent | React.PointerEvent>
+  local?: boolean
   onChange?: () => void
   className?: string
   style?: React.CSSProperties

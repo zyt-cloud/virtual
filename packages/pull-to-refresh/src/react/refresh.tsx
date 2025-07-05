@@ -2,10 +2,18 @@ import { useIsomorphicLayoutEffect, usePullToRefresh } from './hooks/use-pull-to
 import type { PullToRefreshProps } from './typings'
 import classes from './index.module.css'
 import { classnames } from '../lib/utils'
+import { useRef } from 'react'
+import { useEventBind } from './hooks/use-event-bind'
 
-export function PullToRefresh({ style, className, ...restProps }: PullToRefreshProps) {
-  const pageScroll = !restProps.getScrollElement
+export function PullToRefresh({
+  style,
+  local = false,
+  className,
+  ...restProps
+}: PullToRefreshProps) {
+  const refreshDomRef = useRef<HTMLDivElement>(null)
   const instance = usePullToRefresh(restProps)
+  useEventBind(instance, local ? refreshDomRef : void 0)
 
   const arcProgress = Math.min(
     Math.max(0, instance.pullDistance) / instance.options.maxPullDistance,
@@ -16,7 +24,7 @@ export function PullToRefresh({ style, className, ...restProps }: PullToRefreshP
     : `${Math.min(0.6 + arcProgress, 1)}`
 
   useIsomorphicLayoutEffect(() => {
-    if (pageScroll) {
+    if (!local) {
       document.body.classList.add(classes.hasPullToRefresh!)
     }
 
@@ -31,6 +39,7 @@ export function PullToRefresh({ style, className, ...restProps }: PullToRefreshP
 
   return (
     <div
+      ref={refreshDomRef}
       style={
         {
           ...style,
@@ -47,7 +56,7 @@ export function PullToRefresh({ style, className, ...restProps }: PullToRefreshP
         }
       }}
       className={classnames(className, classes.refreshWraper, {
-        [classes.pageScroll as string]: pageScroll,
+        [classes.pageScroll as string]: !local,
       })}
     >
       <svg
