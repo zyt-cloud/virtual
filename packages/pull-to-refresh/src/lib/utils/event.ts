@@ -12,6 +12,8 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
   private refreshInstance?: PullToRefresh
   private pressed = false
   private startY = 0
+  // 是否局部滚动
+  public local = false
 
   private isTouchEvent(e: Event): e is TouchEvent {
     return e.type.startsWith('touch')
@@ -46,11 +48,7 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
 
     const data = this.formatEvent(e as Event)
     if (this.canMove(e as Event)) {
-      if (
-        (e as Event).currentTarget instanceof HTMLElement &&
-        this.startY < data.clientY &&
-        this.isTouchEvent(e as Event)
-      ) {
+      if (this.local && this.startY < data.clientY && this.isTouchEvent(e as Event)) {
         ;(e as Event).preventDefault()
       }
       this.refreshInstance?.onMove(data as unknown as LikeEvent)

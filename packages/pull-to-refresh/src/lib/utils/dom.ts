@@ -8,11 +8,11 @@ export function bindEvent(target: Element | Window, eventManager: EventManager<a
     passive: true,
     signal: controller.signal,
   }
-  const isElement = target instanceof HTMLElement
+  eventManager.local = target instanceof HTMLElement
 
   eventManager.canMove = () => {
-    if (isElement) {
-      return target.scrollTop === 0
+    if (eventManager.local) {
+      return (target as HTMLElement).scrollTop === 0
     }
     return (window.pageYOffset ?? window.scrollY) === 0
   }
@@ -20,7 +20,7 @@ export function bindEvent(target: Element | Window, eventManager: EventManager<a
   if (hasTouch) {
     target.addEventListener('touchstart', eventManager.start as any, eventOptions)
     target.addEventListener('touchmove', eventManager.move as any, {
-      passive: !isElement,
+      passive: !eventManager.local,
       signal: controller.signal,
     })
     target.addEventListener('touchend', eventManager.end, eventOptions)

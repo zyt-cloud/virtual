@@ -8,9 +8,9 @@
 
 ## 局部刷新示例
 
-<demo vue="pull-to-refresh/local.vue" />
+> 刷新元素使用绝对定位，请确保滚动元素使用定位
 
-刷新元素使用绝对定位，请确保滚动元素使用定位
+<demo vue="pull-to-refresh/local.vue" />
 
 ## 配置项
 

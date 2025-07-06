@@ -5,8 +5,6 @@ export class PullToRefresh {
   public options!: Required<PullToRefreshOptions>
   // 下拉组件ui状态
   public status: Status = 'initial'
-  // 控制鼠标是否按下的标志
-  public pressed = false
   // 是否可以拖动下拉组件 只有元素或页面滚动到顶部在具备下拉刷新功能
   public ready = true
 
@@ -47,12 +45,11 @@ export class PullToRefresh {
 
   public onStart(e: LikeEvent) {
     this.startPos = { x: e.clientX, y: e.clientY }
-    this.pressed = true
   }
 
   public onMove(e: LikeEvent) {
     // 未按下鼠标
-    if (!this.pressed || !this.ready) {
+    if (!this.ready) {
       return
     }
 
@@ -78,8 +75,6 @@ export class PullToRefresh {
   }
 
   public onEnd() {
-    this.pressed = false
-
     if (this.status !== 'pulling') {
       return
     }

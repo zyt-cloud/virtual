@@ -17,7 +17,7 @@ export interface LikeEvent {
   clientX: number
   clientY: number
   type: EventType
-  [key: string]: unknown
+  [key: string]: any
 }
 
 export interface PullToRefreshOptions {
