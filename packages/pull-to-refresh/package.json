@@ -1,7 +1,6 @@
 {
   "name": "@z-cloud/pull-to-refresh",
   "version": "1.0.0",
-  "private": true,
   "description": "基于React/Vue + TS开发的下拉刷新以及加载更多组件。",
   "type": "module",
   "keywords": [
@@ -65,7 +64,7 @@
     "dist"
   ],
   "scripts": {
-    "build2": "vite build",
+    "build": "vite build",
     "lint": "eslint ."
   },
   "dependencies": {

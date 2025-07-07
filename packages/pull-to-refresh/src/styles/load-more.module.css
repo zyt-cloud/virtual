@@ -4,104 +4,27 @@
   justify-content: center;
   align-items: center;
   min-height: calc(var(--ball-size) * 2);
+  font-size: 14px;
+  gap: 8px;
 }
 
 .loadMoreLoading {
   display: inline-grid;
-  grid-template-columns: repeat(4, var(--ball-size));
+  grid-template-columns: repeat(3, var(--ball-size));
   column-gap: calc(var(--ball-size) / 2);
 }
 
 .loadMoreBall {
   width: var(--ball-size);
   height: var(--ball-size);
-  background-color: var(--load-more-ball-color, #2f4f4f);
+  background-color: var(--load-more-ball-color, #494949);
   border-radius: 50%;
-}
-
-.loadMoreBall:nth-child(1) {
-  animation: load-more-scale 0.3s linear infinite;
-}
-
-.loadMoreBall:nth-child(2) {
-  animation: load-more-scale 0.3s linear 0.3s infinite;
-}
-
-.loadMoreBall:nth-child(3) {
-  animation: load-more-scale 0.3s linear 0.6s infinite;
-}
-
-.loadMoreBall:nth-child(4) {
-  animation: load-more-scale 0.3s linear 0.9s infinite;
+  transform: scale(0.6);
+  animation: load-more-scale 0.6s linear var(--delay) infinite alternate;
 }
 
 @keyframes load-more-scale {
-  0% {
-    transform: scale(0.8);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* HTML: <div class="loader"></div> */
-.loader1 {
-  width: 80px;
-  aspect-ratio: 4;
-  --bg: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
-  background:
-    var(--bg) 0% 50%,
-    var(--bg) 33.3% 50%,
-    var(--bg) 66.66% 50%,
-    var(--bg) 100% 50%;
-  background-size: calc(80% / 4) 80%;
-  animation: l7 1s infinite linear;
-}
-@keyframes l7 {
-  20% {
-    background-size:
-      calc(100% / 4) 0%,
-      calc(100% / 4) 100%,
-      calc(100% / 4) 100%,
-      calc(100% / 4) 100%;
-  }
-  40% {
-    background-size:
-      calc(100% / 4) 100%,
-      calc(100% / 4) 0%,
-      calc(100% / 4) 100%,
-      calc(100% / 4) 100%;
-  }
-  60% {
-    background-size:
-      calc(100% / 4) 100%,
-      calc(100% / 4) 100%,
-      calc(100% / 4) 0%,
-      calc(100% / 4) 100%;
-  }
-  80% {
-    background-size:
-      calc(100% / 4) 100%,
-      calc(100% / 4) 100%,
-      calc(100% / 4) 100%,
-      calc(100% / 4) 0%;
-  }
-}
-
-/* HTML: <div class="loader"></div> */
-.loader {
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 8px solid lightblue;
-  border-right-color: orange;
-  animation: l2 1s infinite linear;
-}
-@keyframes l2 {
   to {
-    transform: rotate(1turn);
+    transform: scale(1.2);
   }
 }
