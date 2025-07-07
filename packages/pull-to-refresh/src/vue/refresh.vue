@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch, useCssModule } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch, useCssModule, type CSSProperties } from 'vue'
 import { usePullToRefresh } from './hooks/use-pull-to-refresh'
 import { PullToRefreshProps } from './typings'
 import { useEventBind } from './hooks/use-event-bind'
@@ -65,7 +65,7 @@ onUnmounted(() => {
           instance.status === 'finished' ? 0.4 : 1
         })`,
         opacity,
-      } as React.CSSProperties & Record<string, string>
+      } as CSSProperties & Record<string, string>
     "
     @transitionend="onTransitionEnd"
   >

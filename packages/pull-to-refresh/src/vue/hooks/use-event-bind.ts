@@ -4,7 +4,7 @@ import { type PullToRefresh } from '../../lib/pull-to-refresh'
 import { onMounted, onScopeDispose, type Ref } from 'vue'
 
 export function useEventBind(instance: PullToRefresh, domRef?: Ref<HTMLElement | null>) {
-  const eventManager = new EventManager<React.TouchEvent | React.PointerEvent>()
+  const eventManager = new EventManager<TouchEvent | PointerEvent>()
 
   eventManager.start = eventManager.start.bind(eventManager)
   eventManager.move = eventManager.move.bind(eventManager)
