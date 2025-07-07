@@ -1,14 +1,30 @@
+import { classnames } from '../lib/utils'
 import classes from '../styles/load-more.module.css'
+import type { LoadMoreProps } from './typings'
 
-export function LoadMore() {
+export function LoadMore({
+  loading,
+  loadingText,
+  finished,
+  error,
+  className,
+  style,
+}: LoadMoreProps) {
+  const scale = 1.4
   return (
-    <div className={classes.loadMoreWrapper}>
-      <div className={classes.loadMoreLoading}>
-        <div style={{ '--delay': '0s' } as any} className={classes.loadMoreBall}></div>
-        <div style={{ '--delay': '0.2s' } as any} className={classes.loadMoreBall}></div>
-        <div style={{ '--delay': '0.4s' } as any} className={classes.loadMoreBall}></div>
-      </div>
-      <div>加载中...</div>
+    <div className={classnames(classes.loadMoreWrapper, className)} style={style}>
+      {loading && (
+        <>
+          <div className={classes.loadMoreLoading}>
+            <div style={{ '--s1': scale } as any} className={classes.loadMoreBall}></div>
+            <div style={{ '--s2': scale } as any} className={classes.loadMoreBall}></div>
+            <div style={{ '--s3': scale } as any} className={classes.loadMoreBall}></div>
+          </div>
+          <div>{loadingText}</div>
+        </>
+      )}
+      {error}
+      {finished}
     </div>
   )
 }

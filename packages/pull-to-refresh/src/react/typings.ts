@@ -9,3 +9,12 @@ export interface PullToRefreshProps extends PullToRefreshOptions {
   className?: string
   style?: React.CSSProperties
 }
+
+export interface LoadMoreProps {
+  loading?: boolean
+  loadingText?: React.ReactNode
+  finished?: React.ReactNode
+  error?: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+}
