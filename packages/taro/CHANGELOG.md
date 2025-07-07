@@ -1,5 +1,11 @@
 # @z-cloud/virtual-taro
 
+## 1.0.5
+
+### Patch Changes
+
+- fix resizable compoent
+
 ## 1.0.4
 
 ### Patch Changes

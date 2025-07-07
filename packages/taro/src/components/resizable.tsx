@@ -63,8 +63,8 @@ export function Resizable({
           }
           // TODO 微信文档这里的res 包含 width 和 height，但uni-app类型提示没有，暂时这样计算width 和 height
           const nextRect = {
-            width: res.relativeRect.right - res.relativeRect.left,
-            height: res.relativeRect.bottom - res.relativeRect.top,
+            width: Math.ceil(res.relativeRect.right - res.relativeRect.left),
+            height: Math.ceil(res.relativeRect.bottom - res.relativeRect.top),
           }
 
           setRect((prevRect) => {
@@ -97,7 +97,7 @@ export function Resizable({
       {children}
       <View
         className={resizeFlexClass}
-        style={{ ...flexStyle, left: width - 1, top: height - 1 }}
+        style={{ ...flexStyle, left: width - 2, top: height - 2 }}
       />
       <View className={resizeFlexClass} style={{ ...flexStyle, left: width - 1, top: height }} />
       <View className={resizeFlexClass} style={{ ...flexStyle, left: width, top: height - 1 }} />

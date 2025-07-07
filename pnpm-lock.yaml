@@ -278,8 +278,8 @@ importers:
   packages/uni:
     dependencies:
       '@z-cloud/resizable-uni':
-        specifier: ^1.0.2
-        version: 1.0.2(vue@3.5.16(typescript@5.8.3))
+        specifier: ^1.0.3
+        version: 1.0.3(vue@3.5.16(typescript@5.8.3))
       '@z-cloud/virtual-mini':
         specifier: workspace:^
         version: link:../mini
@@ -2020,8 +2020,8 @@ packages:
   '@xtuc/long@4.2.2':
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
 
-  '@z-cloud/resizable-uni@1.0.2':
-    resolution: {integrity: sha512-SGiQT7laymPip0elKmW9v/wIRxIclrTVtCIUV9djvTnjuuSBtcePgziiao/jLmwW3nS1B/Iwq4Yyzf4mjBzTlg==}
+  '@z-cloud/resizable-uni@1.0.3':
+    resolution: {integrity: sha512-RgqzHzop2zzKlxc0ooF/mglUgEDdOniRS6TsfUBd69RP5oT22bkykhiixn28DGviIvWXRqbj7tcio76G/Tughw==}
     engines: {HBuilderX: ^3.8.7}
     peerDependencies:
       vue: '>=3.2.47'
@@ -6781,7 +6781,7 @@ snapshots:
 
   '@xtuc/long@4.2.2': {}
 
-  '@z-cloud/resizable-uni@1.0.2(vue@3.5.16(typescript@5.8.3))':
+  '@z-cloud/resizable-uni@1.0.3(vue@3.5.16(typescript@5.8.3))':
     dependencies:
       vue: 3.5.16(typescript@5.8.3)
 
