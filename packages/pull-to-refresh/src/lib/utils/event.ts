@@ -1,12 +1,5 @@
-import { hasTouch } from '.'
 import type { PullToRefresh } from '../pull-to-refresh'
 import type { LikeEvent } from '../typings'
-
-type LikeScrollEvent = {
-  scrollTop: number
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any
-}
 
 export class EventManager<TEvent = TouchEvent | PointerEvent> {
   private refreshInstance?: PullToRefresh
@@ -14,42 +7,44 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
   private startY = 0
   // 是否局部滚动
   public local = false
-
-  private isTouchEvent(e: Event): e is TouchEvent {
-    return e.type.startsWith('touch')
-  }
+  private eventType?: 'touch' | 'pointer'
+  // TODO 浏览器 和 小程序平台各自处理该属性
+  public canMove = true
 
   private formatEvent(e: Event) {
-    const event = this.isTouchEvent(e as Event) ? (e as TouchEvent).touches[0] : (e as PointerEvent)
+    const event = this.eventType === 'touch' ? (e as TouchEvent).touches[0] : (e as PointerEvent)
     return { clientX: event?.clientX ?? 0, clientY: event?.clientY ?? 0, type: (e as Event).type }
   }
 
-  // TODO 浏览器 和 小程序平台各自实现该静态方法
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public canMove(_e: Event) {
-    return false
-  }
-
   public start(e: TEvent) {
-    if (hasTouch && !this.isTouchEvent(e as Event)) {
+    const event = e as Event
+    const currentType = event.type.startsWith('touch') ? 'touch' : 'pointer'
+
+    // 如果同时存在 touch 和 pointer Event，则优先使用 touchEvent
+    if (this.eventType === 'touch' && currentType !== 'touch') {
       return
     }
+
+    this.eventType = currentType
     this.pressed = true
-    const data = this.formatEvent(e as Event)
+
+    const data = this.formatEvent(event)
     this.startY = data.clientY
     this.refreshInstance?.onStart(data as LikeEvent)
   }
 
   public move(e: TEvent) {
-    // pointerEvent 不满足效果
-    if ((hasTouch && !this.isTouchEvent(e as Event)) || !this.pressed) {
+    const event = e as Event
+
+    if (!event.type.startsWith(this.eventType ?? ' ') || !this.pressed) {
       return
     }
 
-    const data = this.formatEvent(e as Event)
-    if (this.canMove(e as Event)) {
-      if (this.local && this.startY < data.clientY && this.isTouchEvent(e as Event)) {
-        ;(e as Event).preventDefault()
+    const data = this.formatEvent(event)
+
+    if (this.canMove) {
+      if (this.local && this.startY < data.clientY && this.eventType === 'touch') {
+        event.preventDefault()
       }
       this.refreshInstance?.onMove(data as unknown as LikeEvent)
     }
@@ -58,11 +53,6 @@ export class EventManager<TEvent = TouchEvent | PointerEvent> {
   public end() {
     this.pressed = false
     this.refreshInstance?.onEnd()
-  }
-
-  // 小程序端需要
-  public scroll(e: LikeScrollEvent) {
-    this.refreshInstance?.onScroll(e.scrollTop)
   }
 
   public getRefreshInstance() {

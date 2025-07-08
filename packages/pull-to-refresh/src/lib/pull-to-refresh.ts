@@ -33,16 +33,6 @@ export class PullToRefresh {
     }
   }
 
-  // 小程序专用
-  public onScroll(scrollTop: number) {
-    // or scrollTop === 0
-    this.ready = scrollTop < 1
-
-    if (!this.ready && this.status !== 'initial') {
-      this.reset()
-    }
-  }
-
   public onStart(e: LikeEvent) {
     this.startPos = { x: e.clientX, y: e.clientY }
   }

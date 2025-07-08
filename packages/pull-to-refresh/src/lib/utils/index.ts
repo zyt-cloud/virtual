@@ -6,11 +6,6 @@ export function getPullAngle(event: LikeEvent, startPos: { x: number; y: number 
   return Math.atan2(deltaY, deltaX) * (180 / Math.PI)
 }
 
-export const hasTouch = Reflect.has(
-  typeof window !== 'undefined' ? window : globalThis,
-  'ontouchstart'
-)
-
 export function classnames(...args: (string | undefined | Record<string, boolean>)[]) {
   const cls = []
 

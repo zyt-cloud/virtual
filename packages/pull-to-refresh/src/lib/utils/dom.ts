@@ -1,6 +1,10 @@
-import { hasTouch } from '.'
 import type { EventManager } from './event'
 
+const hasTouch = Reflect.has(typeof window !== 'undefined' ? window : globalThis, 'ontouchstart')
+
+/**
+ * 浏览器端事件绑定
+ */
 export function bindEvent(target: Element | Window, eventManager: EventManager<any>) {
   const controller = new AbortController()
 
@@ -10,12 +14,14 @@ export function bindEvent(target: Element | Window, eventManager: EventManager<a
   }
   eventManager.local = target instanceof HTMLElement
 
-  eventManager.canMove = () => {
-    if (eventManager.local) {
-      return (target as HTMLElement).scrollTop === 0
-    }
-    return (window.pageYOffset ?? window.scrollY) === 0
+  // eventManager.canMove = ((target as any).scrollTop ?? window.pageYOffset ?? window.scrollY) === 0
+
+  const onScroll = (e: Event) => {
+    const scrollTop = (e.currentTarget as any)?.scrollTop ?? window.pageYOffset ?? window.scrollY
+    eventManager.canMove = scrollTop === 0
   }
+
+  target.addEventListener('scroll', onScroll, eventOptions)
 
   if (hasTouch) {
     target.addEventListener('touchstart', eventManager.start as any, eventOptions)
